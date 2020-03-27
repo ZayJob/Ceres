@@ -54,12 +54,20 @@ coverage.xml
 # Translations
 *.mo
 *.pot
-
+*.vscode
+.vscode
 # Django stuff:
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+*.idea
+/.idea/
+/.idea
+.idea
+.idea/
+
+
 
 # Flask stuff:
 instance/
