@@ -22,7 +22,7 @@ The template was made in Figma.
 
 Screen Figma
 
-![](https://cloud.mail.ru/home/METYuiHVC5E.jpg)
+![](cloud.mail.ru/home/METYuiHVC5E.jpg)
 
 [LINK](https://www.figma.com/file/LCDOZ5AZ0r1d2AKS9uurNX/Template-UX%2FUI-2?node-id=0%3A1) on template
 
@@ -30,7 +30,7 @@ Screen Figma
 
 Screen Figma
 
-![](https://cloud.mail.ru/home/YQ0s-qGyEQs.jpg)
+![](cloud.mail.ru/home/YQ0s-qGyEQs.jpg)
 
 [LINK](https://www.figma.com/file/LCDOZ5AZ0r1d2AKS9uurNX/Template-UX%2FUI-2?node-id=186%3A885) on template
 
