@@ -56,6 +56,10 @@ The site was deployed on a free Heroku host
 
 ## More...
 
+Vlad Bubeniuk 
+
+Group: 753503
+
 FrontEnd-Tasks 6 sem
 
 [LINK on General project requirements](https://github.com/gmltA/FrontEnd_tasks)
