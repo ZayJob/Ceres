@@ -30,7 +30,7 @@ Screen Figma
 
 Screen Figma
 
-![]()
+![](https://github.com/ZayJob/Healty-Food/blob/master/static/images/YQ0s-qGyEQs.jpg)
 
 [LINK](https://www.figma.com/file/LCDOZ5AZ0r1d2AKS9uurNX/Template-UX%2FUI-2?node-id=186%3A885) on template
 
