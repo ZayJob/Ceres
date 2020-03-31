@@ -22,7 +22,7 @@ The template was made in Figma.
 
 Screen Figma
 
-![]()
+![](https://github.com/ZayJob/Healty-Food/blob/master/static/images/METYuiHVC5E.jpg)
 
 [LINK](https://www.figma.com/file/LCDOZ5AZ0r1d2AKS9uurNX/Template-UX%2FUI-2?node-id=0%3A1) on template
 
