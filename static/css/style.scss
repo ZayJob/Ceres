@@ -46,18 +46,7 @@ p {
 
     @media (max-width: 540px) {
       padding: 0 40px;
-    }
-
-    &__navbar {
-
-      
-
-        &__menu-item {
-
-        }
-    }
-
-    
+    } 
 }
 
 .navbar {
@@ -314,8 +303,6 @@ p {
     }
 }
 
-
-
 .container {
   padding: 0 100px;
 
@@ -530,7 +517,7 @@ p {
       flex-grow: 1;
       height: 100%;
       border-radius: 60px;
-      background-image: url("https://cdn.pixabay.com/photo/2017/02/17/18/06/green-2074719_960_720.jpg");
+      background-image: url("/static/images/AbwqpFnBDms.png");
       background-repeat: no-repeat;
       background-size: auto 100%;
     }
@@ -584,7 +571,7 @@ p {
 
     &__img-wrapper {
       height: 325px;
-      background-image: url("https://i.pinimg.com/originals/ba/ab/bf/baabbf69e02183a59d5a05579e5c5828.jpg");
+      background-image: url("/static/images/AbwqpFnBDms.png");
       background-repeat: no-repeat;
       background-size: 100% auto;
       border-radius: 60px;
@@ -703,10 +690,6 @@ p {
       margin-top: 10px
     }
 
-    &__contributor {
-      
-    }
-
     &__contributor-wrapper {
       padding: 0 10px;
     }
@@ -735,7 +718,7 @@ p {
       margin: auto;
       border-radius: 30px;
 
-      background-image: url("https://www.worldfinance.com/wp-content/uploads/2017/01/C081_rt.jpg");
+      background-image: url("/static/images/AbwqpFnBDms.png");
       background-repeat: no-repeat;
       
     }
@@ -759,10 +742,6 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-
-  &__award {
-    
-  }
 
   &__award-wrapper {
     padding: 50px 10px 0 10px;
@@ -802,12 +781,6 @@ p {
     margin-top: 50px;
     padding: 10px 40px 54px 40px;
   }
-  
-
-
-    &__menu {
-
-    }
 
     &__copyright-text {
       font-size: 15px;
@@ -855,10 +828,6 @@ p {
   
     &__submenu-wrapper {
       padding: 0 10px;;
-    }
-
-    &__submenu {
-
     }
 
     &__sitename-title {
@@ -1113,8 +1082,4 @@ html { overflow-x: hidden; }
         //   background-size: 100% 100%;
         // }
     }
-}
-
-.wrapper {
-  
 }
