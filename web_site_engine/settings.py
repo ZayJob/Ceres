@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'healthy_food.apps.HealthyFoodConfig'
+    'healthy_food.apps.HealthyFoodConfig',
+    'six'
 ]
 
 MIDDLEWARE = [
@@ -133,5 +134,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'byr670000@gmail.com'
+EMAIL_HOST_PASSWORD = '1676230vlad'
+EMAIL_PORT = 587
 
 django_heroku.settings(locals())

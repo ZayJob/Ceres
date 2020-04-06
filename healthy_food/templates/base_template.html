@@ -3,16 +3,133 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         {% block title %}
             Healthy food
         {% endblock %}
     </title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Arimo&family=Manjari:wght@700&family=Montserrat:wght@400&family=Montserrat:wght@700&family=Mr+Dafoe&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.scss" %}">
+    <link rel="stylesheet" href="{% static "css/style.css.map" %}">
 </head>
 <body>
-    {% block context %}
+    <div class="background">
+        <div class="background__broccoli_1"></div>
+        <div class="background__broccoli_2"></div>
+        <div class="background__broccoli_3"></div>
+        <div class="background__broccoli_4"></div>
+        <div class="background__broccoli_5"></div>
+        <div class="background__broccoli_6"></div>
+        <div class="background__broccoli_7"></div>
+        <div class="background__broccoli_8"></div>
+        <div class="background__broccoli_9"></div>
+        <div class="background__broccoli_10"></div>
+        <div class="background__broccoli_11"></div>
+        <div class="background__broccoli_12"></div>
+        <!-- <div class="background__broccoli_13"></div>
+        <div class="background__broccoli_14"></div> -->
+    </div>
+    <header class="header">
+        <nav class="header__navbar navbar">
+            <div class="navbar__menu-wrapper navbar__menu-wrapper_left">
+                <div class="navbar__menu-item navbar__menu-item menu-item_left">
+                    <a class="menu-item__title menu-item__title_current" href="#">Home</a>
+                </div>
+                <div class="navbar__menu-item menu-item_left">
+                    <a class="menu-item__title" href="#">Search food</a>
+                </div>
+                <div class="navbar__menu-item menu-item_left">
+                    <a class="menu-item__title" href="#">Diets</a>
+                </div>
+                <div class="navbar__menu-item menu-item_left">
+                    <a class="menu-item__title" href="#">Calculator</a>
+                </div>
+            </div>
+    
+            <div class="navbar__sitename-wrapper">
+                <a href="#" class="navbar__sitename-title">Healthy food</a>
+            </div>
+    
+            <div class="navbar__menu-wrapper navbar__menu-wrapper_right">
+                <div class="navbar__menu-item navbar__menu-item menu-item_right">
+                    <a class="menu-item__title" href="#">Log in</a>
+                </div>
+                <div class="navbar__menu-item menu-item_right">
+                    <a class="menu-item__title" href="{% url 'signup' %}">Sign up</a>
+                </div>
+                <div class="navbar__menu-item menu-item_right">
+                    <a class="menu-item__title menu-item__title_svg" href="#">
+                <svg width="100%" height="100%" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.5 0.75C11.39 0.75 0.75 11.39 0.75 24.5C0.75 37.61 11.39 48.25 24.5 48.25C37.61 48.25 48.25 37.61 48.25 24.5C48.25 11.39 37.61 0.75 24.5 0.75ZM24.5 7.875C28.4425 7.875 31.625 11.0575 31.625 15C31.625 18.9425 28.4425 22.125 24.5 22.125C20.5575 22.125 17.375 18.9425 17.375 15C17.375 11.0575 20.5575 7.875 24.5 7.875ZM24.5 41.6C18.5625 41.6 13.3138 38.56 10.25 33.9525C10.3212 29.2263 19.75 26.6375 24.5 26.6375C29.2262 26.6375 38.6787 29.2263 38.75 33.9525C35.6862 38.56 30.4375 41.6 24.5 41.6Z" fill="white"/>
+                </svg>
+                </a>
+            </div>
+            <div class="navbar__menu-item menu-item_right">
+                <a class="menu-item__title" href="#">en</a>
+            </div>
+            </div>
+        </nav>
+    </header>
 
+    {% block context %}
+        
     {% endblock %}
+
+    <footer class="footer">
+        <div class="footer__menu footer-menu">
+            <div class="footer-menu__menu-item footer-menu__menu-item_sitename">
+                <a href="#" class="footer-menu__sitename-title">Healthy food</a>
+            </div>
+
+            <div class="flex-break-item flex-break-item_footer"></div>
+
+            <div class="footer-menu__menu-item">
+                <div class="footer-menu__submenu-wrapper">
+                    <div class="footer-menu__submenu submenu">
+                        <p class="submenu__title">Mobile app</p>
+                        <a href="#" class="submenu__item">Features</a>
+                        <a href="#" class="submenu__item">Live share</a>
+                        <a href="#" class="submenu__item">Video record</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-menu__menu-item">
+                <div class="footer-menu__submenu-wrapper">
+                    <div class="footer-menu__submenu submenu">
+                        <p class="submenu__title">Mobile app</p>
+                        <a href="#" class="submenu__item">Features</a>
+                        <a href="#" class="submenu__item">Live share</a>
+                        <a href="#" class="submenu__item">Video record</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-break-item flex-break-item_footer"></div>
+
+            <div class="footer-menu__menu-item">
+                <div class="footer-menu__submenu-wrapper">
+                    <div class="footer-menu__submenu submenu">
+                        <p class="submenu__title">Mobile app</p>
+                        <a href="#" class="submenu__item">Features</a>
+                        <a href="#" class="submenu__item">Live share</a>
+                        <a href="#" class="submenu__item">Video record</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-menu__menu-item">
+                <div class="footer-menu__submenu-wrapper">
+                    <div class="footer-menu__submenu submenu submenu_buttons">
+                        <button class="submenu__button button">Register</button>
+                        <button class="submenu__button button">Log in</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="footer__copyright-text">
+            Photo, Inc. 2019. We love our users!
+        </a>
+    </footer>
 </body>
 </html>
