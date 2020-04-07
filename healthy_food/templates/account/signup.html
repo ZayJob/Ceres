@@ -1,6 +1,7 @@
 {% extends 'base_template.html' %}
 
 {% block context %}
+<div >
     <h2>Sign up</h2>
     <form method="post">
         {% csrf_token %}
@@ -19,4 +20,5 @@
         {% endfor %}
         <button type="submit">Sign up</button>
     </form>
+</div>
 {% endblock %}

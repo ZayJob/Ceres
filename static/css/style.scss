@@ -774,9 +774,14 @@ p {
 }
 
 .footer {
-  background: rgba(0, 0, 0, 0.31);
-  padding: 120px 60px;
-  margin-top: 70px;
+  //background: rgba(0, 0, 0, 0.31);
+  //padding: 120px 60px;
+  //margin-top: 70px;
+
+	position: absolute;
+	width: 100%;
+  height: 80px;
+
   @media (max-width: 920px) {
     margin-top: 50px;
     padding: 10px 40px 54px 40px;
@@ -923,7 +928,9 @@ html { overflow-x: hidden; }
   // left: 0;
   // overflow: hidden;
 
-  z-index: 0;
+  z-index: -1;
+  position: fixed;
+
     &__broccoli {
 
         &_1 {
@@ -956,8 +963,8 @@ html { overflow-x: hidden; }
           position: absolute;
           width: 250.11px;
           height: 268.87px;
-          right: -61.77px;
           top: 520px;
+          left: 669px;
 
           background: url("/static/images/broccoli_1.png");
           transform: rotate(34.6deg);
@@ -968,7 +975,7 @@ html { overflow-x: hidden; }
           position: absolute;
           width: 141.29px;
           height: 151.88px;
-          left: calc(50% - 141.29px/2 - 10.44px);
+          left: 1000px;
           top: 352px;
 
           background: url("/static/images/broccoli_1.png");
@@ -1040,8 +1047,8 @@ html { overflow-x: hidden; }
           position: absolute;
           width: 227.9px;
           height: 213.45px;
-          left: 30.35px;
-          top: 2850px;
+          left: 500px;
+          top: 1071px;
 
           background: url("/static/images/broccoli_2.png");
           transform: rotate(120.92deg);
@@ -1071,15 +1078,5 @@ html { overflow-x: hidden; }
           transform: rotate(-179.3deg);
           background-size: 100% 100%;
         }
-
-        // &_13 {
-          
-        //   background-size: 100% 100%;
-        // }
-
-        // &_14 {
-          
-        //   background-size: 100% 100%;
-        // }
     }
 }

@@ -35,7 +35,7 @@
         <nav class="header__navbar navbar">
             <div class="navbar__menu-wrapper navbar__menu-wrapper_left">
                 <div class="navbar__menu-item navbar__menu-item menu-item_left">
-                    <a class="menu-item__title menu-item__title_current" href="#">Home</a>
+                    <a class="menu-item__title menu-item__title_current" href="{% url 'home' %}">Home</a>
                 </div>
                 <div class="navbar__menu-item menu-item_left">
                     <a class="menu-item__title" href="#">Search food</a>
@@ -49,7 +49,7 @@
             </div>
     
             <div class="navbar__sitename-wrapper">
-                <a href="#" class="navbar__sitename-title">Healthy food</a>
+                <a href="{% url 'home' %}" class="navbar__sitename-title">Healthy food</a>
             </div>
     
             <div class="navbar__menu-wrapper navbar__menu-wrapper_right">
@@ -73,14 +73,18 @@
         </nav>
     </header>
 
-    {% block context %}
-        
-    {% endblock %}
+    <div class="wrapper">
+        <div class="context">
+            {% block context %}
+            
+            {% endblock %}
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="footer__menu footer-menu">
             <div class="footer-menu__menu-item footer-menu__menu-item_sitename">
-                <a href="#" class="footer-menu__sitename-title">Healthy food</a>
+                <a href="{% url 'home' %}" class="footer-menu__sitename-title">Healthy food</a>
             </div>
 
             <div class="flex-break-item flex-break-item_footer"></div>
@@ -121,7 +125,7 @@
             <div class="footer-menu__menu-item">
                 <div class="footer-menu__submenu-wrapper">
                     <div class="footer-menu__submenu submenu submenu_buttons">
-                        <button class="submenu__button button">Register</button>
+                        <button class="submenu__button button"><a class="a-link" href="{% url 'signup' %}">Sign up</a></button>
                         <button class="submenu__button button">Log in</button>
                     </div>
                 </div>

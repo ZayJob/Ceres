@@ -652,11 +652,13 @@ p {
   justify-content: space-around;
   margin-top: 132px;
 }
+
 @media (max-width: 1239px) {
   .contributors {
     margin-top: 10px;
   }
 }
+
 .contributors__contributor-wrapper {
   padding: 0 10px;
 }
@@ -850,7 +852,8 @@ html {
 }
 
 .background {
-  z-index: 0;
+  z-index: -1;
+  position: fixed;
 }
 .background__broccoli_1 {
   position: absolute;
@@ -876,8 +879,8 @@ html {
   position: absolute;
   width: 250.11px;
   height: 268.87px;
-  right: -61.77px;
   top: 520px;
+  left: 669px;
   background: url("/static/images/broccoli_1.png");
   transform: rotate(34.6deg);
   background-size: 100% 100%;
@@ -886,7 +889,7 @@ html {
   position: absolute;
   width: 141.29px;
   height: 151.88px;
-  left: calc(50% - 141.29px/2 - 10.44px);
+  left: 1000px;
   top: 352px;
   background: url("/static/images/broccoli_1.png");
   transform: rotate(64.35deg);
@@ -946,8 +949,8 @@ html {
   position: absolute;
   width: 227.9px;
   height: 213.45px;
-  left: 30.35px;
-  top: 2850px;
+  left: 500px;
+  top: 1071px;
   background: url("/static/images/broccoli_2.png");
   transform: rotate(120.92deg);
   background-size: 100% 100%;
@@ -971,6 +974,14 @@ html {
   background: url("/static/images/broccoli_1.png");
   transform: rotate(-179.3deg);
   background-size: 100% 100%;
+}
+
+.a-link {
+  color: #FFFFFF;
+}
+
+.context {
+  min-height: calc(100vh - 220px);
 }
 
 /*# sourceMappingURL=style.css.map */

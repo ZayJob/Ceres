@@ -21,18 +21,18 @@ def signup(request):
             user.save()
             current_site = get_current_site(request)
             mail_subject = 'Activate your blog account.'
-            message = render_to_string('account/activate_email.html', {
+            message = render_to_string('account/email_message.html', {
                 'user': user,
                 'domain': current_site.domain,
-                'uid':urlsafe_base64_encode(force_bytes(user.pk)),
-                'token':account_activation_token.make_token(user),
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': account_activation_token.make_token(user),
             })
             to_email = form.cleaned_data.get('email')
             email = EmailMessage(
                         mail_subject, message, to=[to_email]
             )
             email.send()
-            return HttpResponse('Please confirm your email address to complete the registration')
+            return render(request, 'account/confirm_email.html')
     else:
         form = SignupForm()
     return render(request, 'account/signup.html', {'form': form})
@@ -48,9 +48,9 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user)
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        return render(request, 'account/confirmation.html')
     else:
-        return HttpResponse('Activation link is invalid!')
+        return render(request, 'account/activation_invalid.html')
 
 
 def home(request):
