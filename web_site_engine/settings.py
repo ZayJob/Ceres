@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'web_site_engine.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'HF_DB',
-        'USER': 'zaybyst',
-        'PASSWORD': '123456789qwe',
-        'HOST': '34.66.26.6',
+        'NAME': 'DB',
+        'USER': 'root',
+        'PASSWORD': 'password',
+        'HOST': '35.193.242.238',
         'PORT': '3306'
     }
 }
