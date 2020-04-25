@@ -53,12 +53,18 @@
             </div>
     
             <div class="navbar__menu-wrapper navbar__menu-wrapper_right">
+                {% if not user_login %}
                 <div class="navbar__menu-item navbar__menu-item menu-item_right">
-                    <a class="menu-item__title" href="#">Log in</a>
+                    <a class="menu-item__title" href="{% url 'login' %}">Log in</a>
                 </div>
                 <div class="navbar__menu-item menu-item_right">
                     <a class="menu-item__title" href="{% url 'signup' %}">Sign up</a>
                 </div>
+                {% else %}
+                    <div class="navbar__menu-item menu-item_right">
+                        <a class="menu-item__title" href="{% url 'logout' %}">Logout</a>
+                    </div>
+                {% endif %}
                 <div class="navbar__menu-item menu-item_right">
                     <a class="menu-item__title menu-item__title_svg" href="#">
                 <svg width="100%" height="100%" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -126,7 +132,7 @@
                 <div class="footer-menu__submenu-wrapper">
                     <div class="footer-menu__submenu submenu submenu_buttons">
                         <button class="submenu__button button"><a class="a-link" href="{% url 'signup' %}">Sign up</a></button>
-                        <button class="submenu__button button">Log in</button>
+                        <button class="submenu__button button"><a class="a-link" href="{% url 'login' %}">Login</a></button>
                     </div>
                 </div>
             </div>
