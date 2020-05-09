@@ -1,0 +1,17 @@
+.button {
+  background: linear-gradient(234.56deg, #FFB36C -13.92%, #FF7171 88.3%);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  
+  font-family: 'Manjari', sans-serif;
+  font-size: 36px;
+  color: #FFFFFF;
+
+  &--purple {
+    background: linear-gradient(203.7deg, #6C8DFF -13.92%, #D0A7F1 88.3%);
+  }
+  
+}

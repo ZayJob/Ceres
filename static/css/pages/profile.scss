@@ -1,0 +1,185 @@
+.profile {
+  &__post {
+    width: 100%;
+    display: flex;
+    padding-top: 30px;
+    // padding-right: 140px;
+    justify-content: space-around;
+    @media screen and (max-width: 1685px) {
+      flex-wrap: wrap;
+
+    }
+  }
+
+
+  &__post-title {
+    text-align: center;
+    font-family: "Montserrat";
+    font-weight: bold;
+
+    
+
+    &--left {
+      font-size: 36px;
+      @media screen and (max-width: 600px) {
+        font-size: 18px;
+      }
+    }
+
+    &--right {
+      font-size: 45px;
+
+      @media screen and (max-width: 600px) {
+        font-size: 24px;
+      }
+    }
+
+  }
+
+  &__post-block {
+    width: 100%;
+    
+
+    &--left {
+    }
+
+    &--right {
+
+    }
+  }
+
+  &__info-wrapper {
+    width: 100%;
+    margin-top: 20px;
+
+    &--left {
+      border-right: 2px solid #D2D2D2;
+
+      padding-right: 18px;
+
+      @media screen and (max-width: 1685px) {
+        border: none;
+        padding-right: 0;
+      }
+    }
+
+    &--right {
+      padding-left: 18px;
+
+    }
+  }
+
+  &__info-background-wrapper {
+    padding-left: 20%;
+    padding-right: 30px;
+    background: linear-gradient(269.93deg, #AEFFB6 29.18%, #ACFFB4 29.19%, rgba(0, 255, 71, 0.03) 99.96%);
+    background-blend-mode: normal;
+    border-radius: 60px;
+    display: flex;
+  }
+
+  &__avatar {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  &__avatar-img {
+    width: 100%;
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 20px;
+    width: 64px;
+
+    @media screen and (max-width: 600px) {
+      width: 30px;
+    }
+  }
+
+  &__social {
+    display: block;
+    width: 100%;
+  }
+  
+  &__social-img {
+    width: 100%;
+  }
+
+  &__datetime {
+    font-weight: 500;
+    font-size: 24px;
+    font-family: "Montserrat";
+    text-align: center;
+    margin-top: 20px;
+
+    @media screen and (max-width: 600px) {
+      font-size: 12px;
+    }
+  }
+
+  &__info-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__info-list-item {
+    display: flex;
+    margin-top: 20px;
+  }
+
+  &__info-list-title {
+    min-width: 140px;
+    font-weight: 500;
+    font-size: 30px;
+    font-family: "Montserrat";
+
+    @media screen and (max-width: 800px) {
+      font-size: 14px;
+      min-width: 76px;
+    }
+  }
+
+  &__info-list-description {
+    font-family: "Montserrat";
+    font-size: 24px;
+    max-width: 517px;
+
+    @media screen and (max-width: 800px) {
+      font-size: 12px;
+    }
+  }
+
+  &__button {
+    height: 40px;
+    font-size: 15px;
+    padding: 0 30px;
+
+    @media screen and (max-width: 800px) {
+      height: 25px;
+      font-size: 9px;
+      padding: 0 20px;
+    }
+
+    &--create-post {
+      padding: 0 50px;
+      margin-left: 60px;
+      margin-right: 140px;
+
+      @media screen and (max-width: 800px) {
+        margin-right: 34px;
+        margin-left: 40px;
+        padding: 0 20px;
+      }
+    }
+  }
+
+  &__buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+

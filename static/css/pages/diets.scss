@@ -1,0 +1,21 @@
+.diets {
+
+  &__posts {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+
+  &__search-wrapper {
+    width: 100%;
+    padding: 0 150px;
+
+    @media screen and (max-width: 1200px) {
+      padding: 0;
+    }
+
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+.log-in {
+  &__input {
+    min-height: 40px;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 24px;
+  }
+
+  &__post-wrapper {
+    margin: 144px 0;
+
+    @media screen and (max-width: 860px) {
+      margin: 56px 0;
+    }
+  }
+
+  &__post {
+    max-width: 430px;
+    width: 100%;
+    padding-top: 20px;
+    padding: 20px 80px 60px 80px;
+
+    @media screen and (max-width: 860px) {
+      padding: 20px 24px 60px 24px;
+    }
+  }
+
+  &__form-title {
+    font-weight: bold;
+    font-family: "Montserrat";  
+    text-align: center;
+    line-height: 100px;
+
+    @media screen and (max-width: 400px) {
+      font-size: 20px;
+    }
+  }
+
+  &__form-wrapper {
+
+  }
+
+  &__form-button {
+    height: 40px;
+    width: 100%;
+    font-size: 15px;
+    line-height: 40px;
+  }
+
+  &__save-option-title {
+    font-family: "Montserrat";
+    font-size: 15px;
+  }
+
+  &__save-option-checkbox {
+    
+
+  }
+
+  &__save-option {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+}

@@ -1,0 +1,254 @@
+.calculator {
+
+  &__post {
+    display: flex;
+    padding: 50px;
+    width: 100%;
+
+    @media screen and (max-width: 1200px) {
+      flex-direction: column;
+      padding: 0;
+      padding-bottom: 38px;
+    }
+  }
+
+  &__post-block-wrapper {
+
+    &--left {
+      flex-grow: 1;
+      min-width: 500px;
+      
+      @media screen and (max-width: 1200px) {
+        min-width: 0;
+        
+      }
+    }
+
+    &--right {
+      width: 50%;
+
+      @media screen and (max-width: 1200px) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__info-wrapper {
+    // height: 600px;
+    background: #B1FFB9;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 171px 53px 171px;
+
+    @media screen and (max-width: 1200px) {
+      padding: 10px 40px 28px 40px;
+      border-radius: 60px;
+      
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: bold;
+
+    @media screen and (max-width: 1200px) {
+      font-size: 18px;
+    }
+  }
+
+  &__formula-title {
+    font-size: 15px;
+    font-family: "Montserrat";
+    text-align: center;
+    line-height: 50px;
+
+    @media screen and (max-width: 1200px) {
+      font-size: 13px;
+    }
+  }
+
+  &__input {
+    font-family: "Montserrat";
+    height: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 60px;
+    padding: 0 20px;
+    font-size: 15px;
+
+    @media screen and (max-width: 1200px) {
+      height: 27px;
+      font-size: 13px;
+    }
+
+    &::placeholder {
+      color: #000;
+    }
+  }
+
+  &__input-right-label {
+    width: min-content;
+    font-family: "Montserrat";
+    display: block;
+    padding-right: 20px;
+    font-size: 15px;
+    line-height: 30px;
+    position: relative;
+    margin-right: 0;
+    margin-left: auto;
+    top: -40px;
+
+    @media screen and (max-width: 1200px) {
+      font-size: 13px;
+      top: -25px;
+      line-height: 20px;
+
+    }
+  }
+
+  &__sex-radios {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+    font-size: 15px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 44px;
+    margin-top: 30px;
+
+    @media screen and (max-width: 1200px) {
+      height: 30px;
+      line-height: 34px;
+      margin-top: 10px;
+    }
+  }
+
+  &__sex-radio-text {
+    font-size: 15px;
+    font-family: "Montserrat";
+    user-select: none;
+
+    @media screen and (max-width: 1200px) {
+      font-size: 13px;
+    }
+    
+  }
+
+  &__sex-radio-label {
+    line-height: 82px;
+    padding: 0 20px;
+
+    @media screen and (max-width: 1200px) {
+      line-height: 45px;
+      
+    }
+
+
+    &>input:checked+span::before {
+      content: '';
+      display: inline-block;
+      border-color: #0b76ef;
+      background-color: #0b76ef;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+    }
+
+    &>span::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+      background-color: #fff;
+      vertical-align: middle;
+      margin-top: -3px;
+      margin-right: 20px;
+
+      @media screen and (max-width: 1200px) {
+        width: 16px;
+        height: 16px;
+        margin-right: 18px;
+        
+  
+      }
+    }
+  }
+
+  &__diagram-wrapper {
+    width: 100%;
+  }
+
+  &__diagram {
+    margin: 0 auto;
+    margin-top: 50px;
+    display: block;
+
+    @media screen and (max-width: 1200px) {
+      width: 154px;
+    }
+  }
+
+  &__diagram-info-wrapper {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 30px;
+
+    @media screen and (max-width: 1200px) {
+      max-width: 200px;
+    }
+  }
+
+  &__diagram-info-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: 1200px) {
+      margin-bottom: 0;
+    }
+  }
+
+
+  &__diagram-info-key {
+    font-size: 36px;
+    width: min-content;
+
+    @media screen and (max-width: 1200px) {
+      font-size: 18px;
+    }
+
+    &--grey {
+      color: #969696;
+    }
+
+    &--yellow {
+      color: #F8C283;
+    }
+
+    &--blue {
+      color: #53C7EC;
+    }
+
+    &--purple {
+      color: #E5ADE0;
+    }
+  }
+
+  &__diagram-info-value {
+    width: max-content;
+    margin-top: 10px;
+    color: #969696;
+    font-size: 24px;
+    font-family: "Montserrat";
+
+    @media screen and (max-width: 1200px) {
+      font-size: 14px;
+    }
+  }
+}

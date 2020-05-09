@@ -1,0 +1,451 @@
+.top-content {
+  
+  display: flex;
+  justify-content: space-around;
+
+    @media (max-width: 1100px) {
+      flex-direction: column;
+      
+    }
+
+    &__post-wrapper {
+      padding: 20px 0 0 0;
+      width: 800px;
+      height: 750px;
+      margin: auto;
+
+      @media (max-width: 1920px) {
+        width: 48%;
+        
+      }
+
+      @media (max-width: 1636px) {
+        height: 620px;
+        
+      }
+
+      @media (max-width: 1100px) {
+        width: 80%;
+        height: 500px;
+      }
+
+      @media (max-width: 850px) {
+        width: 100%;
+        height: 500px;
+        
+      }
+
+      @media (max-width: 706px) {
+        height: 450px;
+        
+      }
+
+      @media (max-width: 420px) {
+        height: 320px;
+      }
+      
+    }
+
+
+    &__post {
+      width: 100%;
+      height: 100%;
+      
+    }
+}
+
+.top-post {
+  
+  
+  padding: 0px 11px 0 16px;
+  background-color: rgba(0, 0, 0, 0.1);
+
+  border: 5px solid #FFFFFF;
+  border-radius: 60px;
+
+
+    &__title {
+      font-family: 'Archivo Black', sans-serif;
+      color: #FFFFFF;
+      text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+
+        @media (max-width: 1772px) {
+          font-size: 70px;
+        }
+
+        @media (max-width: 1636px) {
+          font-size: 60px;
+        }
+
+        @media (max-width: 1350px) {
+          font-size: 50px;
+          
+        }
+
+        @media (max-width: 706px) {
+          font-size: 40px;
+          
+        }
+
+        @media (max-width: 420px) {
+          font-size: 30px;
+          
+        }
+    }
+
+    &__second-title {
+      font-family: 'Arimo', sans-serif;
+      color: #FFFFFF;
+
+        @media (max-width: 1772px) {
+          font-size: 38px;
+        }
+
+        @media (max-width: 1636px) {
+          font-size: 28px;
+        }
+
+        @media (max-width: 400px) {
+          font-size: 20px;
+        }
+    }
+
+    &__button {
+      
+      width: 300px;
+      height: 60px;
+      margin: 20px auto;
+      display: block;
+      line-height: 70px;
+
+        @media (max-width: 1350px) {
+          width: 240px;
+          height: 60px;
+          
+        }
+
+        @media (max-width: 706px) {
+          width: 150px;
+          height: 30px;
+          line-height: 30px;
+          font-size: 15px !important;
+        }
+
+        
+    }
+
+    &__description {
+      width: 420px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.56);
+      font-family: 'Manjari', sans-serif;
+      display: block;
+      margin: auto;
+
+      @media (max-width: 1350px) {
+        font-size: 20px;
+        width: 300px;
+      }
+
+      @media (max-width: 420px) {
+        font-size: 10px;
+        width: 200px;
+      }
+    }
+
+    &__col-text {
+      width: 1ch;
+      word-break: break-word;
+      display: block;
+      margin: 0 100px;
+      color: #FFFFFF;
+
+        @media (max-width: 1636px) {
+          
+        }
+
+        @media (max-width: 1636px) {
+          font-size: 40px;
+          
+        }
+
+        @media (max-width: 1350px) {
+          margin: 0 50px;
+        }
+  
+        @media (max-width: 1100px) {
+          margin: 0 100px;
+          font-size: 33px;
+        }
+
+        @media (max-width: 850px) {
+          margin: 0 50px;
+        }
+  
+        @media (max-width: 706px) {
+          font-size: 29px;
+          // margin: 0 50px;
+        }
+  
+        @media (max-width: 420px) {
+          font-size: 20px;
+        }
+    }
+
+    &__image-wrapper {
+      border-left: 5px solid #FFFFFF;
+      display: block;
+      flex-grow: 1;
+      height: 100%;
+      border-radius: 60px;
+      background-image: url("https://cdn.pixabay.com/photo/2017/02/17/18/06/green-2074719_960_720.jpg");
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+    }
+
+    &_img {
+      display: flex;
+      padding: 0;
+    }
+}
+
+
+
+.mid-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+}
+
+.post {
+  margin: 40px auto 0 auto;
+  width: 520px;
+  // height: 870px;
+  background-color: #FFFFFF;
+  box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.25);
+  border-radius: 60px;
+  padding-bottom: 20px;
+
+    @media (max-width: 560px) {
+      width: 310px
+      
+    }
+
+    &_transparent {
+      background-color: unset;
+      box-shadow: unset;
+    }
+
+    &__img-wrapper {
+      height: 325px;
+      background-image: url("https://i.pinimg.com/originals/ba/ab/bf/baabbf69e02183a59d5a05579e5c5828.jpg");
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      border-radius: 60px;
+      margin-bottom: 20px;
+
+        @media (max-width: 560px) {
+          height: 250px;
+          
+        }
+    }
+
+    &__img-bottom {
+      height: 420px;
+      background: rgba(255, 167, 86, 0.83);
+      border-radius: 60px;
+      text-align: center;
+
+      @media (max-width: 560px) {
+        height: 320px;
+        font-size: 25px;
+      }
+    }
+
+    &__img-title {
+      
+      @media (max-width: 560px) {
+        font-size: 20px;
+      }
+    }
+
+    &__description {
+      margin: 40px;
+      border-bottom: 1px solid black;
+      font-family: 'Arimo', sans-serif;
+
+        @media (max-width: 560px) {
+          font-size: 15px;
+          margin: 10px;
+        }
+    }
+
+    &__footer {
+      display: flex;
+    }
+
+    &__number {
+      padding-left: 40px;
+      font-family: 'Arimo', sans-serif;
+      
+        @media (max-width: 560px) {
+          font-size: 24px;
+          padding: 5px 0 0 20px;
+        }
+    }
+
+    &__rate-stars {
+      display: flex;
+      padding: 10px 0 0 70px;
+
+        @media (max-width: 560px) {
+          padding: 10px 0 0 30px
+        }
+    }
+
+    &__create {
+      margin-top: 300px;
+
+        @media (max-width: 1239px) {
+          margin-top: 10px
+        }
+    }
+}
+
+.rate-stars {
+  
+    &__star {
+      width: 39px;
+      height: 31px;
+      @media (max-width: 560px) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+}
+
+.create {
+
+    &__button {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      font-size: 100px;
+      display: block;
+      margin: auto;
+      
+    }
+
+    &__title {
+      text-align: center;
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+      margin-top: 20px;
+      
+    }
+}
+
+.contributors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 132px;
+
+    @media (max-width: 1239px) {
+      margin-top: 10px
+    }
+
+    &__contributor {
+      
+    }
+
+    &__contributor-wrapper {
+      padding: 0 10px;
+    }
+}
+
+.contributor {
+  width: 319px;
+  height: 356px;
+  padding: 24px 45px;
+  margin-top: 20px;
+
+  background: #FFFFFF;
+  box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.25);
+  border-radius: 60px;
+  text-align: center;
+  font-family: 'Manjari', sans-serif;
+
+    &__title {
+      font-family: 'Manjari', sans-serif;
+      text-align: center;
+    }
+
+    &__img-wrapper {
+      width: 225px;
+      height: 175px;
+      margin: auto;
+      border-radius: 30px;
+
+      background-image: url("https://www.worldfinance.com/wp-content/uploads/2017/01/C081_rt.jpg");
+      background-repeat: no-repeat;
+      
+    }
+
+    &__email {
+      font-size: 18px;
+      line-height: 40px;
+    }
+
+    &__address {
+      font-size: 11px;
+    }
+
+    &__phone-number {
+      font-size: 14px;
+      line-height: 30px;
+    }
+}
+
+.awards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  &__award {
+    
+  }
+
+  &__award-wrapper {
+    padding: 50px 10px 0 10px;
+  }
+}
+
+.award {
+  width: 240px;
+  height: 340px;
+  padding-top: 70px;
+
+  
+  box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.25);
+  border-radius: 60px;
+
+    &__img-wrapper {
+      margin: auto;
+      width: 149px;
+      height: 195px;
+      background-image: url("../assets/kisspng-medal-badge-ribbon-award-awards-medal-5a95f6247d43f0\ 5.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    &__year {
+      text-align: center;
+      padding-top: 20px;
+      font-family: "Manjari", sans-serif;
+    }
+}

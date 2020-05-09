@@ -19,31 +19,36 @@ def signup(request):
     if request.method == 'POST':
         signup_form = SignupForm(request.POST)
         profile_form = ProfileForm(request.POST)
-        if signup_form.is_valid() and profile_form.is_valid():
-            user = signup_form.save(commit=False)
-            user.is_active = False
-            user.save()
-            profile = Profile(
-                url=signup_form.changed_data["url"],
-                company=signup_form.changed_data["company"],
-                phone=signup_form.changed_data["phone"],
-                address=signup_form.changed_data["address"],
-                avatar=signup_form.changed_data["avatar"],
-                user=user
-            )
-            profile.save()
-            current_site = get_current_site(request)
-            mail_subject = 'Activate your blog account.'
-            message = render_to_string('account/email_message.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': account_activation_token.make_token(user),
-            })
-            to_email = signup_form.cleaned_data.get('email')
-            email = EmailMessage(mail_subject, message, to=[to_email])
-            email.send()
-            return render(request, 'account/confirm_email.html')
+        if signup_form.is_valid():
+            if profile_form.is_valid():
+                user = signup_form.save(commit=False)
+                user.is_active = False
+                user.save()
+                profile = Profile(
+                    url=profile_form.cleaned_data["url"],
+                    company=profile_form.cleaned_data["company"],
+                    phone=profile_form.cleaned_data["phone"],
+                    address=profile_form.cleaned_data["address"],
+                    avatar="",
+                    user=user
+                )
+                profile.save()
+                current_site = get_current_site(request)
+                mail_subject = 'Activate your blog account.'
+                message = render_to_string('account/email_message.html', {
+                    'user': user,
+                    'domain': current_site.domain,
+                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                    'token': account_activation_token.make_token(user),
+                })
+                to_email = signup_form.cleaned_data.get('email')
+                email = EmailMessage(mail_subject, message, to=[to_email])
+                email.send()
+                return render(request, 'account/confirm_email.html')
+            else:
+                return HttpResponse("<b>lol2</b>")
+        else:
+            return HttpResponse("<b>lol1</b>")
     else:
         signup_form = SignupForm()
         profile_form = ProfileForm()
@@ -95,3 +100,18 @@ def logout_user(request):
     logout(request)
     request.session['user_id'] = False
     return render(request, 'account/logout.html')
+
+def profile(request):
+    return render(request, 'account/profile.html')
+
+def diets(request):
+    return render(request, 'publications/diets.html')
+
+def create_post(request):
+    return render(request, 'publications/create_post.html')
+
+def search_food(request):
+    return render(request, 'foods/search_food.html')
+
+def calculator(request):
+    return render(request, 'calculator/calculator.html')

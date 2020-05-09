@@ -1,0 +1,26 @@
+{% extends 'base_template.html' %}
+
+{% block title %}
+  Create post
+{% endblock %}
+
+{% block context %}
+  <div class="container create-post">
+    <form class="post create-post__post-form">
+      <div class="create-post__post-form-block-wrapper create-post__post-form-block-wrapper--left">
+        <input type="text" class="create-post__post-form-input" placeholder="Title">
+        <input type="text" class="create-post__post-form-input" placeholder="Description">
+        <textarea name="create-post-body-text" class="create-post__post-form-textarea" placeholder="Text"></textarea>
+        <input type="submit" value="Create post" class="create-post__submit-button button button--purple">
+      </div>
+      <div class="create-post__post-form-block-wrapper create-post__post-form-block-wrapper--right">
+        <div class="create-post__upload-image">
+          <span class="create-post__upload-image-plus-icon">+</span>
+          <span class="create-post__upload-image-text">Upload image</span>
+        </div>
+        <input type="submit" value="Create post" class="create-post__submit-button create-post__submit-button--mobile button button--purple">
+
+      </div>
+    </form>
+  </div>
+{% endblock %}

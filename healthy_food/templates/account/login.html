@@ -1,24 +1,27 @@
 {% extends 'base_template.html' %}
 
-{% block context %}
-<div >
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {% for field in login_form %}
-            <p>
-            {{ field.label_tag }}<br>
-            {{ field }}
-            {% if field.help_text %}
-                <small style="display: none">{{ field.help_text }}</small>
-            {% endif %}
+{% block title %}
+  Profile
+{% endblock %}
 
-            {% for error in field.errors %}
-                <p style="color: red">{{ error }}</p>
-            {% endfor %}
-            </p>
-        {% endfor %}
-        <button type="submit">Sign up</button>
-    </form>
-</div>
+{% block context %}
+  <div class="container log-in">
+    <div class="log-in__post-wrapper">
+      <div class="log-in__post post">
+        <p class="log-in__form-title">Autorization</p>
+        <div class="log-in__form-wrapper">
+          <form action="#" class="log-in__form">
+            <input required type="text" class="log-in__input form-input" placeholder="Login">
+            <input required type="text" class="log-in__input form-input" placeholder="Password">
+            <button type="submit" class="log-in__form-button button">Log in</button>
+            <div class="log-in__save-option">
+              <input class="log-in__save-option-checkbox" id="save-option-label" type="checkbox">
+              <!-- <p class="log-in__save-option-title">Save ?</p> -->
+              <label for="save-option-label" class="log-in__save-option-title">Save ?</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

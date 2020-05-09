@@ -1,0 +1,59 @@
+{% extends 'base_template.html' %}
+
+{% block title %}
+  Calculator
+{% endblock %}
+
+{% block context %}
+  <div class="container calculator">
+    <div class="post calculator__post">
+      <div class="calculator__post-block-wrapper calculator__post-block-wrapper--left">
+        <div class="calculator__info-wrapper">
+          <h2 class="calculator__title">Culculator kcal</h2>
+          <p class="calculator__formula-title">Formula: Harris Benedict</p>
+          <input type="text" class="calculator__input" placeholder="Age:">
+          <div class="calculator__sex-radios">
+            <label class="calculator__sex-radio-label">
+              <input name="calculator-radio" type="radio" class="calculator__sex-radio">
+              <span class="calculator__sex-radio-text">Female</span>
+            </label>
+            <label class="calculator__sex-radio-label">
+              <input name="calculator-radio" type="radio" class="calculator__sex-radio">
+              <span class="calculator__sex-radio-text">Male</span>
+            </label>
+          </div>
+          <input type="text" class="calculator__input" placeholder="Weight:">
+          <span class="calculator__input-right-label">kg</span>
+          <input type="text" class="calculator__input" placeholder="Height:">
+          <span class="calculator__input-right-label">cm</span>
+          <input type="text" class="calculator__input" placeholder="Physic. Activity:">
+          <span class="calculator__input-right-label">g</span>
+          <button class="button calculator__button">Calculate</button>
+        </div>
+      </div>
+      <div class="calculator__post-block-wrapper calculator__post-block-wrapper--right">
+        <div class="calculator__diagram-wrapper">
+          <img src="/static/images/diagram.svg" alt="" class="calculator__diagram">
+        </div>
+        <div class="calculator__diagram-info-wrapper">
+          <div class="calculator__diagram-info-item">
+            <p class="calculator__diagram-info-key calculator__diagram-info-key--grey">Energy</p>
+            <span class="calculator__diagram-info-value">867 kcal</span>
+          </div>
+          <div class="calculator__diagram-info-item">
+            <p class="calculator__diagram-info-key calculator__diagram-info-key--yellow">Protein</p>
+            <span class="calculator__diagram-info-value">0 g</span>
+          </div>
+          <div class="calculator__diagram-info-item">
+            <p class="calculator__diagram-info-key calculator__diagram-info-key--blue">Fat</p>
+            <span class="calculator__diagram-info-value">0 g</span>
+          </div>
+          <div class="calculator__diagram-info-item">
+            <p class="calculator__diagram-info-key calculator__diagram-info-key--purple">Carbohydrate</p>
+            <span class="calculator__diagram-info-value">0 g</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

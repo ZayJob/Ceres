@@ -1,0 +1,123 @@
+.footer {
+  background: rgba(0, 0, 0, 0.31);
+  padding: 120px 60px;
+  margin-top: 70px;
+  @media (max-width: 920px) {
+    margin-top: 50px;
+    padding: 10px 40px 54px 40px;
+  }
+  
+
+
+    &__menu {
+
+    }
+
+    &__copyright-text {
+      font-size: 15px;
+      color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: normal;
+      font-weight: 400;
+    }
+}
+
+.footer-menu {
+  display: flex;
+  // flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 60px;
+  border-bottom: rgba(255, 255, 255, 0.5) 1px solid;
+  margin-bottom: 40px;
+
+
+    @media (max-width: 920px) {
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 500px) {
+      justify-content: space-between;
+    }
+
+    &__menu-item {
+      width: 200px;
+        &_sitename {
+          flex-grow: 1;
+            @media (max-width: 920px) {
+              text-align: center;
+            }
+        }
+
+        @media (max-width: 1100px) {
+          width: 150px;
+        }
+
+        @media (max-width: 920px) {
+          width: 120px;
+        }
+    }
+  
+    &__submenu-wrapper {
+      padding: 0 10px;;
+    }
+
+    &__submenu {
+
+    }
+
+    &__sitename-title {
+      font-family: 'Mr Dafoe', cursive;
+      font-size: 36px;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      color: #FFFFFF;
+      text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+
+      
+    }
+}
+
+.submenu {
+  
+
+    &__title {
+      font-weight: bold;
+      font-family: "Monsterrat", sans-serif;
+      color: #FFFFFF;
+      line-height: 40px;
+      font-size: 15px;
+      text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+      
+    }
+
+    &__item {
+      font-size: 15px;
+      font-family: "Monsterrat", sans-serif;
+      display: block;
+      color: #FFFFFF;
+      line-height: 22px;
+    }
+
+    &__button {
+      display: block;
+      margin: 10px;
+      width: 130px;
+      height: 40px;
+      font-size: 17px !important;
+      line-height: 45px;
+
+      @media (max-width: 920px) {
+        width: 88px;
+        height: 30px;
+        font-size: 9px;
+        line-height: 35px;
+      }
+    }
+
+    &_buttons {
+      @media (max-width: 920px) {
+        padding-top: 15px;
+      }
+    }
+}
