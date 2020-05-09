@@ -10,9 +10,10 @@
       <div class="log-in__post post">
         <p class="log-in__form-title">Autorization</p>
         <div class="log-in__form-wrapper">
-          <form action="#" class="log-in__form">
-            <input required type="text" class="log-in__input form-input" placeholder="Login">
-            <input required type="text" class="log-in__input form-input" placeholder="Password">
+          <form method="POST" class="log-in__form">
+            {% csrf_token %}
+            <input required type="text" name="username" class="log-in__input form-input" placeholder="Login">
+            <input required type="text" name="password" class="log-in__input form-input" placeholder="Password">
             <button type="submit" class="log-in__form-button button">Log in</button>
             <div class="log-in__save-option">
               <input class="log-in__save-option-checkbox" id="save-option-label" type="checkbox">

@@ -17,38 +17,36 @@ from .forms import SignupForm, ProfileForm, LoginForm
 @transaction.atomic
 def signup(request):
     if request.method == 'POST':
-        signup_form = SignupForm(request.POST)
-        profile_form = ProfileForm(request.POST)
-        if signup_form.is_valid():
-            if profile_form.is_valid():
-                user = signup_form.save(commit=False)
-                user.is_active = False
-                user.save()
-                profile = Profile(
-                    url=profile_form.cleaned_data["url"],
-                    company=profile_form.cleaned_data["company"],
-                    phone=profile_form.cleaned_data["phone"],
-                    address=profile_form.cleaned_data["address"],
-                    avatar="",
-                    user=user
-                )
-                profile.save()
-                current_site = get_current_site(request)
-                mail_subject = 'Activate your blog account.'
-                message = render_to_string('account/email_message.html', {
-                    'user': user,
-                    'domain': current_site.domain,
-                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                    'token': account_activation_token.make_token(user),
-                })
-                to_email = signup_form.cleaned_data.get('email')
-                email = EmailMessage(mail_subject, message, to=[to_email])
-                email.send()
-                return render(request, 'account/confirm_email.html')
-            else:
-                return HttpResponse("<b>lol2</b>")
-        else:
-            return HttpResponse("<b>lol1</b>")
+        user = User(
+            first_name=request.POST.get('first_name'),
+            last_name=request.POST.get('last_name'),
+            username=request.POST.get('username'),
+            email=request.POST.get('email'),
+            password=request.POST.get('password1'),
+        )
+        user.is_active = False
+        user.save()
+        profile = Profile(
+            url=request.POST.get("url"),
+            company=request.POST.get("company"),
+            phone=request.POST.get("phone"),
+            address=request.POST.get("address"),
+            avatar="",
+            user=user
+        )
+        profile.save()
+        current_site = get_current_site(request)
+        mail_subject = 'Activate your blog account.'
+        message = render_to_string('account/email_message.html', {
+            'user': user,
+            'domain': current_site.domain,
+            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            'token': account_activation_token.make_token(user),
+        })
+        to_email = request.POST.get('email')
+        email = EmailMessage(mail_subject, message, to=[to_email])
+        email.send()
+        return render(request, 'account/confirm_email.html')
     else:
         signup_form = SignupForm()
         profile_form = ProfileForm()
@@ -81,15 +79,13 @@ def home(request):
 
 def login_user(request):
     if request.method == 'POST':
-        login_form = LoginForm(request.POST)
-        if login_form.is_valid():
-            try:
-                user = User.objects.get(username=request.POST.get("username"), password=request.POST.get("password"))
-            except(TypeError, ValueError, OverflowError, User.DoesNotExist):
-                user = None
-            if user is not None:
-                login(request, user)
-                request.session['user_id'] = user.pk
+        try:
+            user = User.objects.get(username=request.POST.get("username"), password=request.POST.get("password"))
+        except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+            user = None
+        if user is not None:
+            login(request, user)
+            request.session['user_id'] = user.pk
         return render(request, 'home/home.html', context={'user_login': True})
     else:
         login_form = LoginForm()
@@ -98,7 +94,10 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    request.session['user_id'] = False
+    try:
+        del request.session['user_id']
+    except KeyError:
+        pass
     return render(request, 'account/logout.html')
 
 def profile(request):

@@ -1431,4 +1431,6 @@ p {
     .calculator__diagram-info-value {
       font-size: 14px; } }
 
-/*# sourceMappingURL=style.css.map */
+.context {
+  min-height: calc(100vh - 220px);
+}

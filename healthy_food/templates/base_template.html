@@ -34,7 +34,7 @@
     <header class="header">
         <nav class="header__navbar navbar">
             <div class="navbar__menu-wrapper navbar__menu-wrapper_left">
-                <div class="navbar__menu-item navbar__menu-item menu-item_left">
+                <div class="navbar__menu-item menu-item_left">
                     <a class="menu-item__title menu-item__title_current" href="{% url 'home' %}">Home</a>
                 </div>
                 <div class="navbar__menu-item menu-item_left">
@@ -64,27 +64,25 @@
                     <div class="navbar__menu-item menu-item_right">
                         <a class="menu-item__title" href="{% url 'logout' %}">Logout</a>
                     </div>
-                {% endif %}
                 <div class="navbar__menu-item menu-item_right">
                     <a class="menu-item__title menu-item__title_svg" href="{% url 'profile' %}">
-                <svg width="100%" height="100%" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M24.5 0.75C11.39 0.75 0.75 11.39 0.75 24.5C0.75 37.61 11.39 48.25 24.5 48.25C37.61 48.25 48.25 37.61 48.25 24.5C48.25 11.39 37.61 0.75 24.5 0.75ZM24.5 7.875C28.4425 7.875 31.625 11.0575 31.625 15C31.625 18.9425 28.4425 22.125 24.5 22.125C20.5575 22.125 17.375 18.9425 17.375 15C17.375 11.0575 20.5575 7.875 24.5 7.875ZM24.5 41.6C18.5625 41.6 13.3138 38.56 10.25 33.9525C10.3212 29.2263 19.75 26.6375 24.5 26.6375C29.2262 26.6375 38.6787 29.2263 38.75 33.9525C35.6862 38.56 30.4375 41.6 24.5 41.6Z" fill="white"/>
-                </svg>
-                </a>
-            </div>
-            <div class="navbar__menu-item menu-item_right">
-                <a class="menu-item__title" href="#">en</a>
-            </div>
+                    <svg width="100%" height="100%" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24.5 0.75C11.39 0.75 0.75 11.39 0.75 24.5C0.75 37.61 11.39 48.25 24.5 48.25C37.61 48.25 48.25 37.61 48.25 24.5C48.25 11.39 37.61 0.75 24.5 0.75ZM24.5 7.875C28.4425 7.875 31.625 11.0575 31.625 15C31.625 18.9425 28.4425 22.125 24.5 22.125C20.5575 22.125 17.375 18.9425 17.375 15C17.375 11.0575 20.5575 7.875 24.5 7.875ZM24.5 41.6C18.5625 41.6 13.3138 38.56 10.25 33.9525C10.3212 29.2263 19.75 26.6375 24.5 26.6375C29.2262 26.6375 38.6787 29.2263 38.75 33.9525C35.6862 38.56 30.4375 41.6 24.5 41.6Z" fill="white"/>
+                    </svg>
+                    </a>
+                </div>
+                {% endif %}
+                <div class="navbar__menu-item menu-item_right">
+                    <a class="menu-item__title" href="#">en</a>
+                </div>
             </div>
         </nav>
     </header>
 
-    <div class="wrapper">
-        <div class="context">
-            {% block context %}
-            
-            {% endblock %}
-        </div>
+    <div class="context">
+        {% block context %}
+        
+        {% endblock %}
     </div>
 
     <footer class="footer">
