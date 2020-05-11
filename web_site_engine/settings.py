@@ -139,7 +139,7 @@ STATICFILES_DIRS = [
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'vladbubeniuk@gmail.com'
-EMAIL_HOST_PASSWORD = '1676230dev'
+EMAIL_HOST_PASSWORD = '1676230developer'
 EMAIL_PORT = 587
 
 django_heroku.settings(locals())
