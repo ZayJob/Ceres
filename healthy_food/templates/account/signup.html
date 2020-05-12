@@ -14,31 +14,21 @@
             {% csrf_token %}
             <div class="sign-up__form-block sign-up__form-block--left">
               <div class="sign-up__double-input-wrapper">
-                <label for="first_name"></label>
                 <input required type="text" name="first_name" id="first_name" class="sign-up__input form-input" placeholder="First name">
                 <div class="sign-up__double-input-divider"></div>
-                <label for="last_name"></label>
                 <input required type="text" name="last_name" id="last_name" class="sign-up__input form-input" placeholder="Last name">
               </div>
-              <label for="username"></label>
               <input required type="text" name="username" id="username" class="sign-up__input form-input" placeholder="Login">
-              <label for="email"></label>
               <input required type="email" name="email" id="email" class="sign-up__input form-input" placeholder="Email address">
-              <label for="password1"></label>
               <input required type="password" name="password1" id="password1" class="sign-up__input form-input" placeholder="Create password1">
-              <label for="password2"></label>
               <input required type="password" name="password2" id="password2" class="sign-up__input form-input" placeholder="Create password2">
               <button type="submit" class="sign-up__form-button sign-up__form-button button">Register</button>
             </div>
             <div class="sign-up__form-block sign-up__form-block--middle"></div>
             <div class="sign-up__form-block sign-up__form-block--right">
-              <label for="phone"></label>
               <input required type="text" name="phone" id="phone" class="sign-up__input form-input" placeholder="Phone">
-              <label for="url"></label>
               <input required type="text" name="url" id="url" class="sign-up__input form-input" placeholder="Url">
-              <label for="company"></label>
               <input required type="text" name="company" id="company" class="sign-up__input form-input" placeholder="Companies">
-              <label for="address"></label>
               <input required type="text" name="address" id="address" class="sign-up__input form-input" placeholder="Address">
               <a href="#" class="sign-up__other-link">Other</a>
             </div>
