@@ -113,4 +113,28 @@ def search_food(request):
     return render(request, 'foods/search_food.html')
 
 def calculator(request):
-    return render(request, 'calculator/calculator.html')
+    if request.method == 'POST':
+        if request.POST.get('male') == "on":
+            BMR = 88.362 + 13.397 * int(request.POST.get('weight')) + 4.799 * int(request.POST.get('height')) - 5.677 * int(request.POST.get('age'))
+        elif request.POST.get('female') == "on":
+            BMR = 447.593 + 9.247 * int(request.POST.get('weight')) + 3.098 * int(request.POST.get('height')) - 4.330 * int(request.POST.get('age'))
+
+        if request.POST.get('activ') == 'Сидячий образ жизни':
+            AMR = 1.2
+        elif request.POST.get('activ') == 'Умеренная активность (легкие физические нагрузки либо занятия 1-3 раз в неделю)':
+            AMR = 1.375
+        elif request.POST.get('activ') == 'Средняя активность (занятия 3-5 раз в неделю)':
+            AMR = 1.55
+        elif request.POST.get('activ') == 'Активные люди (интенсивные нагрузки, занятия 6-7 раз в неделю)':
+            AMR = 1.725
+        elif request.POST.get('activ') == 'Спортсмены и люди, выполняющие сходные нагрузки (6-7 раз в неделю)':
+            AMR = 1.9
+
+        energy = int(BMR * AMR)
+        protein = int(energy * 0.3 / 4)
+        fat = int(energy * 0.1 / 9)
+        carbohydrate = int(energy * 0.6 / 4)
+
+        return render(request, 'calculator/calculator.html', {'energy':energy, 'protein':protein, 'fat':fat, 'carbohydrate':carbohydrate})
+    else:
+        return render(request, 'calculator/calculator.html')

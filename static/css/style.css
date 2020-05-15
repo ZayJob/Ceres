@@ -1309,7 +1309,8 @@ p {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
   border-radius: 60px;
   padding: 0 20px;
-  font-size: 15px; }
+  font-size: 15px;
+  background-color: #fff; }
   @media screen and (max-width: 1200px) {
     .calculator__input {
       height: 27px;
@@ -1336,9 +1337,9 @@ p {
   display: flex;
   justify-content: center; }
 .calculator__button {
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 500;
-  height: 40px;
+  height: 45px;
   line-height: 44px;
   margin-top: 30px; }
   @media screen and (max-width: 1200px) {
