@@ -119,7 +119,7 @@ def diets(request):
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         posts = None
     if posts != None:
-        return render(request, 'publications/diets.html', {'posts': posts[len(posts) - 3:len(posts)], 'user_login': True})
+        return render(request, 'publications/diets.html', {'posts': posts[len(posts) - 3:len(posts)]})
 
 def create_post(request):
     if request.method == 'POST':
