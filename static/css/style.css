@@ -1107,14 +1107,14 @@ p {
       width: 182px; } }
 .search-food__receipt-title {
   font-weight: bold;
-  font-size: 36px;
+  font-size: 24px;
   line-height: 42px;
   font-family: "Montserrat";
   border-bottom: 1px solid #000;
   text-align: center; }
   @media screen and (max-width: 600px) {
     .search-food__receipt-title {
-      font-size: 24px;
+      font-size: 16px;
       line-height: 30px; } }
 .search-food__receipt-subtitle {
   display: flex;
@@ -1434,4 +1434,7 @@ p {
 
 .context {
   min-height: calc(100vh - 220px);
+}
+.fix_x {
+  visibility: hidden
 }
