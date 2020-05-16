@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'healthy_food.apps.HealthyFoodConfig',
     'six',
-    'requests'
 ]
 
 MIDDLEWARE = [
