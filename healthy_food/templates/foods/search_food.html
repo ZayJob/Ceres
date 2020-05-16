@@ -6,216 +6,43 @@
 
 {% block context %}
   <div class="container search-food">
-    <div class="search-food__input-wrapper">
-      <input type="text" class="search-food__input" placeholder="Search food">
-
-    </div>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="search-food__input-wrapper">
+          <input type="text" class="search-food__input" name='data' placeholder="Search food">
+      </div>
+      <button type="submit" class="fix_x"></button>
+    </form>
     <div class="search-food__filter-wrapper">
       <p class="search-food__filter-title">FILTER</p>
       <img src="/static/images/filter_open.svg" alt="" class="search-food__filter-open-img">
     </div>
 
     <div class="search-food__receipts">
-      <div class="search-food__receipt">
-        <p class="search-food__receipt-title">Oil</p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Energy</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">867 kcal</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Protein</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Fat</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Carbohydrate</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-end">100 g/ml</p>
-      </div>
-      <div class="search-food__receipt">
-        <p class="search-food__receipt-title">Oil</p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Energy</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">867 kcal</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Protein</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Fat</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Carbohydrate</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-end">100 g/ml</p>
-      </div>
-      <div class="search-food__receipt">
-        <p class="search-food__receipt-title">Oil</p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Energy</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">867 kcal</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Protein</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Fat</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Carbohydrate</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-end">100 g/ml</p>
-      </div>
-      <div class="search-food__receipt">
-        <p class="search-food__receipt-title">Oil</p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Energy</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">867 kcal</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Protein</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Fat</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Carbohydrate</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-end">100 g/ml</p>
-      </div>
-      <div class="search-food__receipt">
-        <p class="search-food__receipt-title">Oil</p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Energy</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">867 kcal</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Protein</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Fat</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Carbohydrate</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-end">100 g/ml</p>
-      </div>
-      <div class="search-food__receipt">
-        <p class="search-food__receipt-title">Oil</p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Energy</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">867 kcal</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Protein</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Fat</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Carbohydrate</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-end">100 g/ml</p>
-      </div>
-      <div class="search-food__receipt">
-        <p class="search-food__receipt-title">Oil</p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Energy</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">867 kcal</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Protein</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Fat</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Carbohydrate</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-end">100 g/ml</p>
-      </div>
-      <div class="search-food__receipt">
-        <p class="search-food__receipt-title">Oil</p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Energy</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">867 kcal</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Protein</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Fat</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Carbohydrate</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-end">100 g/ml</p>
-      </div>
-      <div class="search-food__receipt">
-        <p class="search-food__receipt-title">Oil</p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Energy</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">867 kcal</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Protein</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Fat</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Carbohydrate</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-end">100 g/ml</p>
-      </div>
-      <div class="search-food__receipt">
-        <p class="search-food__receipt-title">Oil</p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Energy</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">867 kcal</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Protein</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Fat</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-subtitle">
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Carbohydrate</span>
-          <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">0 g</span>
-        </p>
-        <p class="search-food__receipt-end">100 g/ml</p>
-      </div>
+      {% if answer %}
+        {% for item in answer %}
+          <div class="search-food__receipt">
+            <p class="search-food__receipt-title">{{ item.name }}</p>
+            <p class="search-food__receipt-subtitle">
+              <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Energy</span>
+              <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">{{ item.energy }} kcal</span>
+            </p>
+            <p class="search-food__receipt-subtitle">
+              <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Protein</span>
+              <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">{{ item.protein }} g</span>
+            </p>
+            <p class="search-food__receipt-subtitle">
+              <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Fat</span>
+              <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">{{ item.fat }} g</span>
+            </p>
+            <p class="search-food__receipt-subtitle">
+              <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--left">Carbohydrate</span>
+              <span class="search-food__receipt-subtitle-text search-food__receipt-subtitle-text--right">{{ item.carbohydrate }} g</span>
+            </p>
+            <p class="search-food__receipt-end">100 g/ml</p>
+          </div>
+        {% endfor %}
+      {% endif %}
     </div>
 
     <div class="search-food__paging">

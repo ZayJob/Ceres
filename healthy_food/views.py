@@ -9,6 +9,9 @@ from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.db import transaction
 
+import requests as req
+import json
+
 from .models import Profile
 from .tokens import account_activation_token
 from .forms import SignupForm, ProfileForm, LoginForm
@@ -110,7 +113,25 @@ def create_post(request):
     return render(request, 'publications/create_post.html')
 
 def search_food(request):
-    return render(request, 'foods/search_food.html')
+    if request.method == 'POST':
+        respons = req.get('https://api.nal.usda.gov/fdc/v1/foods/search?api_key=EVuhK3UbNku53YdTuw044oAUBsIJF0fGDpRhwKhG&query={0}'.format(request.POST.get('data')))
+        data = json.loads(respons.text)
+        answer = []
+        for item in data['foods']:
+            answer.append({'name': item['description']})
+            for info in item['foodNutrients']:
+                if info["nutrientNumber"] == '205':
+                    answer[-1]['carbohydrate'] = info['value']
+                if info["nutrientNumber"] == '208':
+                        answer[-1]['energy'] = info['value']
+                if info["nutrientNumber"] == '204':
+                        answer[-1]['fat'] = info['value']
+                if info["nutrientNumber"] == '203':
+                        answer[-1]['protein'] = info['value']
+        return render(request, 'foods/search_food.html', {'answer': answer[:10]})
+    else:
+        return render(request, 'foods/search_food.html')
+
 
 def calculator(request):
     if request.method == 'POST':

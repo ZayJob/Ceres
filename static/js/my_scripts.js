@@ -39,4 +39,4 @@ var myChart = new Chart(ctx, {
             borderWidth: 1
         }]
     },
-  });
+});
