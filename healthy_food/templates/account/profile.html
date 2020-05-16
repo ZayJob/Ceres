@@ -8,11 +8,11 @@
   <div class="container profile">
     <div class="profile__post post">
       <div class="profile__post-block profile__post-block--left">
-        <p class="profile__post-title profile__post-title--left">purpleleopard757</p>
+        <p class="profile__post-title profile__post-title--left">{{ user.username }}</p>
         <div class="profile__info-wrapper profile__info-wrapper--left">
           <div class="profile__info-background-wrapper">
             <div class="profile__avatar">
-              <img src="/static/images/avatar.png" alt="" class="profile__avatar-img">
+              <img src="{{ profile.avatar.url }}" alt="" class="profile__avatar-img">
             </div>
             <div class="profile__socials">
               <a class="profile__social">
@@ -30,35 +30,35 @@
             </div>
           </div>
         </div>
-        <p class="profile__datetime"><time>September 26, 2018 10:08 AM<time></p>
+        <p class="profile__datetime"><time>{{ user.last_login }}<time></p>
       </div>
       <div class="profile__post-block profile__post-block--right">
-        <p class="profile__post-title profile__post-title--right">Tanya Cooper</p>
+        <p class="profile__post-title profile__post-title--right">{{ user.first_name }} {{ user.last_name }}</p>
         <div class="profile__info-wrapper profile__info-wrapper--right">
           <ul class="profile__info-list">
             <li class="profile__info-list-item">
               <p class="profile__info-list-title">Email:</p>
-              <p class="profile__info-list-description">alexa.matthews@example.com</p>
+              <p class="profile__info-list-description">{{ user.email }}</p>
             </li>
             <li class="profile__info-list-item">
               <p class="profile__info-list-title">Phone:</p>
-              <p class="profile__info-list-description">alexa.matthews@example.com</p>
+              <p class="profile__info-list-description">{{ profile.phone }}</p>
             </li>
             <li class="profile__info-list-item">
               <p class="profile__info-list-title">Comp.:</p>
-              <p class="profile__info-list-description">alexa.matthews@example.com</p>
+              <p class="profile__info-list-description">{{ profile.company }}</p>
             </li>
             <li class="profile__info-list-item">
               <p class="profile__info-list-title">Url:</p>
-              <p class="profile__info-list-description">alexa.matthews@example.com</p>
+              <p class="profile__info-list-description">{{ profile.url }}</p>
             </li>
             <li class="profile__info-list-item">
               <p class="profile__info-list-title">Address:</p>
-              <p class="profile__info-list-description">alexa.matthews@example.com</p>
+              <p class="profile__info-list-description">{{ profile.address }}</p>
             </li>
             <li class="profile__info-list-item">
               <p class="profile__info-list-title">Me:</p>
-              <p class="profile__info-list-description">Lorem ullamco dolor occaecat commodo excepteur sint veniam proident ad. Laboris anim voluptate proident et nisi excepteur veniam veniam cupidatat aute. Do aute aliqua eu cupidatat voluptate duis esse. Est voluptate id qui esse ullamco consectetur labore officia in amet.</p>
+              <p class="profile__info-list-description">{{ profile.me }}</p>
             </li>
           </ul>
         </div>

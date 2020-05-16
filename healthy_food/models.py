@@ -3,11 +3,10 @@ from django.contrib.auth.models import User
 
 
 class Post(models.Model):
-    pass
-
-
-class Diet(models.Model):
-    pass
+    title = models.CharField(max_length=100, null = True)
+    description = models.CharField(max_length=150, null = True)
+    text = models.CharField(max_length=500, null = True)
+    img = models.ImageField(null=True, blank=True)
 
 
 class Profile(models.Model):
@@ -16,7 +15,8 @@ class Profile(models.Model):
     company = models.CharField(max_length=100)
     url = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
-    avatar = models.CharField(max_length=100)
+    avatar = models.ImageField(default="dflt_img.jpg", null=True, blank=True)
+    me = models.CharField(max_length=255, null = True)
 
     ADMIN = 1
     MODER = 2

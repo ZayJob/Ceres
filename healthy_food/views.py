@@ -12,7 +12,7 @@ from django.db import transaction
 import requests as req
 import json
 
-from .models import Profile
+from .models import Profile, Post
 from .tokens import account_activation_token
 from .forms import SignupForm, ProfileForm, LoginForm
 
@@ -34,7 +34,7 @@ def signup(request):
             company=request.POST.get("company"),
             phone=request.POST.get("phone"),
             address=request.POST.get("address"),
-            avatar="",
+            me="",
             user=user
         )
         profile.save()
@@ -104,13 +104,35 @@ def logout_user(request):
     return render(request, 'account/logout.html')
 
 def profile(request):
-    return render(request, 'account/profile.html')
+    try:
+        user = User.objects.get(pk=request.session['user_id'])
+        profile = Profile.objects.get(user_id=request.session['user_id'])
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+        profile = None
+    if user != None and profile != None:
+        return render(request, 'account/profile.html', {'user': user, 'profile': profile, 'user_login': True})
 
 def diets(request):
-    return render(request, 'publications/diets.html')
+    try:
+        posts = Post.objects.all()
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        posts = None
+    if posts != None:
+        return render(request, 'publications/diets.html', {'posts': posts[len(posts) - 3:len(posts)], 'user_login': True})
 
 def create_post(request):
-    return render(request, 'publications/create_post.html')
+    if request.method == 'POST':
+        post = Post(
+            title=request.POST.get("title"),
+            description=request.POST.get("description"),
+            text=request.POST.get('create-post-body-text'),
+            img=request.FILES.get('file')
+        )
+        post.save()
+        return render(request, 'publications/create_post.html', {'user_login': True})
+    else:
+        return render(request, 'publications/create_post.html', {'user_login': True})
 
 def search_food(request):
     if request.method == 'POST':

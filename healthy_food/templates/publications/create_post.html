@@ -6,18 +6,22 @@
 
 {% block context %}
   <div class="container create-post">
-    <form class="post create-post__post-form">
+    <form class="post create-post__post-form" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
       <div class="create-post__post-form-block-wrapper create-post__post-form-block-wrapper--left">
-        <input type="text" class="create-post__post-form-input" placeholder="Title">
-        <input type="text" class="create-post__post-form-input" placeholder="Description">
+        <input type="text" name="title" class="create-post__post-form-input" placeholder="Title">
+        <input type="text" name="description" class="create-post__post-form-input" placeholder="Description">
         <textarea name="create-post-body-text" class="create-post__post-form-textarea" placeholder="Text"></textarea>
+        <div class="upload-file">
+          <div class="form-group ">
+            <input type="file" name="file" id="file" class="input-file">
+            <label for="file" class="btn btn-tertiary js-labelFile">
+              <i class="icon fa fa-check"></i>
+              <span class="js-fileName">Upload file</span>
+            </label>
+          </div>
+         </div>
         <input type="submit" value="Create post" class="create-post__submit-button button button--purple">
-      </div>
-      <div class="create-post__post-form-block-wrapper create-post__post-form-block-wrapper--right">
-        <div class="create-post__upload-image">
-          <span class="create-post__upload-image-plus-icon">+</span>
-          <span class="create-post__upload-image-text">Upload image</span>
-        </div>
         <input type="submit" value="Create post" class="create-post__submit-button create-post__submit-button--mobile button button--purple">
       </div>
     </form>

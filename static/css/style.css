@@ -672,6 +672,7 @@ p {
     box-shadow: unset; }
   .post__img-wrapper {
     height: 325px;
+    width: 100%;
     background-image: url("https://i.pinimg.com/originals/ba/ab/bf/baabbf69e02183a59d5a05579e5c5828.jpg");
     background-repeat: no-repeat;
     background-size: 100% auto;
@@ -1437,4 +1438,44 @@ p {
 }
 .fix_x {
   visibility: hidden
+}
+.upload-file{
+  padding: 0 0 20px 0;
+}
+.upload-file .btn-tertiary{
+  color:#555;
+  padding:0;
+  line-height:40px;
+  width:300px;
+  margin:auto;
+  display:block;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 60px;
+  padding: 0 20px;
+}
+.upload-file .btn-tertiary:hover,.upload-file .btn-tertiary:focus{
+  color:#888;
+  border-color:#888
+}
+.upload-file .input-file {
+  width:.1px;
+  height:.1px;
+  opacity:0;
+  overflow:hidden;
+  position:absolute;
+  z-index:-1
+}
+.upload-file .input-file + .js-labelFile {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  padding:0 10px;
+  cursor:pointer
+}
+.upload-file .input-file + .js-labelFile .icon:before{
+  content:"\f093"
+}
+.upload-file .input-file + .js-labelFile.has-file .icon:before{
+  content:"\f00c";
+  color:#5AAC7B
 }

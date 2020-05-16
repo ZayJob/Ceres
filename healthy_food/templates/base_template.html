@@ -10,6 +10,7 @@
         {% endblock %}
     </title>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Arimo&family=Manjari:wght@700&family=Montserrat:wght@400&family=Montserrat:wght@700&family=Mr+Dafoe&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
     <link rel="stylesheet" href="{% static "css/style.scss" %}">
     <link rel="stylesheet" href="{% static "css/style.css.map" %}">
@@ -32,20 +33,6 @@
     <header class="header">
         <nav class="header__navbar navbar">
             <div class="navbar__menu-wrapper navbar__menu-wrapper_left">
-                {% if not user_login %}
-                    <div class="navbar__menu-item menu-item_left">
-                        <a class="menu-item__title menu-item__title_current" href="{% url 'signup' %}">Home</a>
-                    </div>
-                    <div class="navbar__menu-item menu-item_left">
-                        <a class="menu-item__title" href="{% url 'signup' %}">Search food</a>
-                    </div>
-                    <div class="navbar__menu-item menu-item_left">
-                        <a class="menu-item__title" href="{% url 'signup' %}">Diets</a>
-                    </div>
-                    <div class="navbar__menu-item menu-item_left">
-                        <a class="menu-item__title" href="{% url 'signup' %}">Calculator</a>
-                    </div>
-                {% else %}
                     <div class="navbar__menu-item menu-item_left">
                         <a class="menu-item__title menu-item__title_current" href="{% url 'home' %}">Home</a>
                     </div>
@@ -58,7 +45,6 @@
                     <div class="navbar__menu-item menu-item_left">
                         <a class="menu-item__title" href="{% url 'calculator' %}">Calculator</a>
                     </div>
-                {% endif %}
             </div>
     
             <div class="navbar__sitename-wrapper">
