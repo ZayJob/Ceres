@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.sites.shortcuts import get_current_site
@@ -89,10 +89,9 @@ def login_user(request):
         if user is not None:
             login(request, user)
             request.session['user_id'] = user.pk
-        return render(request, 'home/home.html', context={'user_login': True})
-    else:
-        login_form = LoginForm()
-    return render(request, 'account/login.html', {'login_form': login_form})
+            return render(request, 'home/home.html', context={'user_login': True})
+    login_form = LoginForm()
+    return render(request, 'account/login.html', context={'login_form': login_form})
 
 
 def logout_user(request):
@@ -111,7 +110,7 @@ def profile(request):
         user = None
         profile = None
     if user != None and profile != None:
-        return render(request, 'account/profile.html', {'user': user, 'profile': profile, 'user_login': True})
+        return render(request, 'account/profile.html', context={'user': user, 'profile': profile, 'user_login': True})
 
 def diets(request):
     try:
@@ -119,7 +118,11 @@ def diets(request):
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         posts = None
     if posts != None:
-        return render(request, 'publications/diets.html', {'posts': posts[len(posts) - 3:len(posts)]})
+        try:
+            request.session['user_id']
+            return render(request, 'publications/diets.html', context={'posts': posts[len(posts) - 3:len(posts)], 'user_login': True})
+        except KeyError:
+            return render(request, 'publications/diets.html', context={'posts': posts[len(posts) - 3:len(posts)], 'user_login': False})
 
 def create_post(request):
     if request.method == 'POST':
@@ -130,9 +133,9 @@ def create_post(request):
             img=request.FILES.get('file')
         )
         post.save()
-        return render(request, 'publications/create_post.html', {'user_login': True})
+        return render(request, 'publications/create_post.html', context={'user_login': True})
     else:
-        return render(request, 'publications/create_post.html', {'user_login': True})
+        return render(request, 'publications/create_post.html', context={'user_login': True})
 
 def search_food(request):
     if request.method == 'POST':
@@ -150,9 +153,17 @@ def search_food(request):
                         answer[-1]['fat'] = info['value']
                 if info["nutrientNumber"] == '203':
                         answer[-1]['protein'] = info['value']
-        return render(request, 'foods/search_food.html', {'answer': answer[:10]})
+        try:
+            request.session['user_id']
+            return render(request, 'foods/search_food.html', context={'answer': answer[:10], 'user_login': True})
+        except KeyError:
+            return render(request, 'foods/search_food.html', context={'answer': answer[:10], 'user_login': False})
     else:
-        return render(request, 'foods/search_food.html')
+        try:
+            request.session['user_id']
+            return render(request, 'foods/search_food.html', context={'user_login': True})
+        except KeyError:
+            return render(request, 'foods/search_food.html', context={'user_login': False})
 
 
 def calculator(request):
@@ -178,6 +189,14 @@ def calculator(request):
         fat = int(energy * 0.1 / 9)
         carbohydrate = int(energy * 0.6 / 4)
 
-        return render(request, 'calculator/calculator.html', {'energy':energy, 'protein':protein, 'fat':fat, 'carbohydrate':carbohydrate})
+        try:
+            request.session['user_id']
+            return render(request, 'calculator/calculator.html', context={'energy':energy, 'protein':protein, 'fat':fat, 'carbohydrate':carbohydrate, 'user_login': True})
+        except KeyError:
+            return render(request, 'calculator/calculator.html', context={'energy':energy, 'protein':protein, 'fat':fat, 'carbohydrate':carbohydrate, 'user_login': False})
     else:
-        return render(request, 'calculator/calculator.html')
+        try:
+            request.session['user_id']
+            return render(request, 'calculator/calculator.html', context={'user_login': True})
+        except KeyError:
+            return render(request, 'calculator/calculator.html', context={'user_login': False})

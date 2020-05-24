@@ -17,7 +17,7 @@ urlpatterns = [
     path('calculator/', calculator, name='calculator'),
     path('diets/', diets, name='diets'),
     path('search_food/', search_food, name='s_food'),
-    path('create_post/', create_post, name='c_post'),
+    path('create_post/', create_post, name='c_post')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -11,7 +11,11 @@
         <div class="top-content__post top-post">
           <h1 class="top-post__title">Wealth is nothing without health</h1>
           <h2 class="top-post__second-title">5 Diets That Are Supported by Science</h2>
-          <button class="top-post__button button">Try now</button>
+          {% if not user_login %}
+            <a class="a-link" href="{% url 'login' %}"><button class="top-post__button button">Try now</button></a>
+          {% else %}
+            <a class="a-link" href="{% url 'login' %}"><button class="top-post__button button">Try now</button></a>
+          {% endif %}
           <p class="top-post__description">Here are 5 healthy diets that are scientifically proven to be effective.</p>
         </div>
       </div>
@@ -271,11 +275,23 @@
 
       <div class="mid-content__post post post_transparent">
         <div class="post__create create">
-          <button class="create__button button">
-            <svg width="30" height="36" viewBox="0 0 30 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M29.8387 20.5H17.2581V35.5H13.0645V20.5H0.483887V15.5H13.0645V0.5H17.2581V15.5H29.8387V20.5Z" fill="white"/>
-            </svg>
-          </button>
+          {% if not user_login %}
+            <a class="a-link" href="{% url 'login' %}">
+              <button class="create__button button">
+                <svg width="30" height="36" viewBox="0 0 30 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29.8387 20.5H17.2581V35.5H13.0645V20.5H0.483887V15.5H13.0645V0.5H17.2581V15.5H29.8387V20.5Z" fill="white"/>
+                </svg>
+              </button>
+            </a>
+          {% else %}
+            <a class="a-link" href="{% url 'c_post' %}">
+              <button class="create__button button">
+                <svg width="30" height="36" viewBox="0 0 30 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M29.8387 20.5H17.2581V35.5H13.0645V20.5H0.483887V15.5H13.0645V0.5H17.2581V15.5H29.8387V20.5Z" fill="white"/>
+                </svg>
+              </button>
+            </a>
+          {% endif %}
           <h2 class="create__title">CREATE <br>POST</h2>
         </div>
       </div>

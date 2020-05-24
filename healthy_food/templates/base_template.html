@@ -33,18 +33,18 @@
     <header class="header">
         <nav class="header__navbar navbar">
             <div class="navbar__menu-wrapper navbar__menu-wrapper_left">
-                    <div class="navbar__menu-item menu-item_left">
-                        <a class="menu-item__title menu-item__title_current" href="{% url 'home' %}">Home</a>
-                    </div>
-                    <div class="navbar__menu-item menu-item_left">
-                        <a class="menu-item__title" href="{% url 's_food' %}">Search food</a>
-                    </div>
-                    <div class="navbar__menu-item menu-item_left">
-                        <a class="menu-item__title" href="{% url 'diets' %}">Diets</a>
-                    </div>
-                    <div class="navbar__menu-item menu-item_left">
-                        <a class="menu-item__title" href="{% url 'calculator' %}">Calculator</a>
-                    </div>
+                <div class="navbar__menu-item menu-item_left">
+                    <a class="menu-item__title menu-item__title_current" href="{% url 'home' %}">Home</a>
+                </div>
+                <div class="navbar__menu-item menu-item_left">
+                    <a class="menu-item__title" href="{% url 's_food' %}">Search food</a>
+                </div>
+                <div class="navbar__menu-item menu-item_left">
+                    <a class="menu-item__title" href="{% url 'diets' %}">Diets</a>
+                </div>
+                <div class="navbar__menu-item menu-item_left">
+                    <a class="menu-item__title" href="{% url 'calculator' %}">Calculator</a>
+                </div>
             </div>
     
             <div class="navbar__sitename-wrapper">
@@ -80,7 +80,6 @@
 
     <div class="context">
         {% block context %}
-        
         {% endblock %}
     </div>
 
@@ -139,6 +138,6 @@
         </a>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-    <script src="{% static "js/my_scripts.js" %}"></script>
+    <script src="{% static "js/diagram.js" %}"></script>
 </body>
 </html>
