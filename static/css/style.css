@@ -1479,3 +1479,12 @@ p {
   content:"\f00c";
   color:#5AAC7B
 }
+.page {
+  display: none;
+}
+.active {
+  display: block;
+}
+.deactivate {
+  display: none;
+}

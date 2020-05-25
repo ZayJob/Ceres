@@ -1,15 +1,9 @@
-{% extends 'base_template.html' %}
 
-{% block title %}
-  Search food
-{% endblock %}
-
-{% block context %}
   <div class="container search-food">
-    <form method="POST">
+    <form method="POST" id="search_food_form">
       {% csrf_token %}
       <div class="search-food__input-wrapper">
-          <input type="text" class="search-food__input" name='data' placeholder="Search food">
+          <input type="text" class="search-food__input" name='data' id="data" placeholder="Search food">
       </div>
       <button type="submit" class="fix_x"></button>
     </form>
@@ -67,4 +61,3 @@
       <span class="search-food__paging-next">next&gt;</span>
     </div>-->
   </div>
-{% endblock %}

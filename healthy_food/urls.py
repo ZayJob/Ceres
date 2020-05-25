@@ -11,13 +11,14 @@ urlpatterns = [
     path('', home, name='home'),
     path('signup/', signup, name='signup'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', activate, name='activate'),
-    path('logout/', logout_user, name='logout'),
-    path('login/', login_user, name='login'),
-    path('profile/', profile, name='profile'),
-    path('calculator/', calculator, name='calculator'),
+    path('logout', logout_user),
+    path('login', login_user_post),
+    path('profile', profile),
+    path('calculator', calculator_post),
     path('diets/', diets, name='diets'),
-    path('search_food/', search_food, name='s_food'),
-    path('create_post/', create_post, name='c_post')
+    path('search_food', search_food_post),
+    path('create_post/', create_post, name='c_post'),
+    path('render_page', render_page),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

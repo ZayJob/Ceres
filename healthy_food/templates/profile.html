@@ -1,0 +1,65 @@
+
+<div class="container profile">
+  <div class="profile__post post">
+    <div class="profile__post-block profile__post-block--left">
+      <p class="profile__post-title profile__post-title--left">{{ user.username }}</p>
+      <div class="profile__info-wrapper profile__info-wrapper--left">
+        <div class="profile__info-background-wrapper">
+          <div class="profile__avatar">
+            <img src="{{ profile.avatar.url }}" alt="" class="profile__avatar-img">
+          </div>
+          <div class="profile__socials">
+            <a class="profile__social">
+              <img class="profile__social-img" src="/static/images/twitter.png" alt="">
+            </a>
+            <a class="profile__social">
+              <img class="profile__social-img" src="/static/images/instagram.png" alt="">
+            </a>
+            <a class="profile__social">
+              <img class="profile__social-img" src="/static/images/vk.png" alt="">
+            </a>
+            <a class="profile__social">
+              <img class="profile__social-img" src="/static/images/facebook.png" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+      <p class="profile__datetime"><datetime>{{ user.last_login }}<datetime></p>
+    </div>
+    <div class="profile__post-block profile__post-block--right">
+      <p class="profile__post-title profile__post-title--right">{{ user.first_name }} {{ user.last_name }}</p>
+      <div class="profile__info-wrapper profile__info-wrapper--right">
+        <ul class="profile__info-list">
+          <li class="profile__info-list-item">
+            <p class="profile__info-list-title">Email:</p>
+            <p class="profile__info-list-description">{{ user.email }}</p>
+          </li>
+          <li class="profile__info-list-item">
+            <p class="profile__info-list-title">Phone:</p>
+            <p class="profile__info-list-description">{{ profile.phone }}</p>
+          </li>
+          <li class="profile__info-list-item">
+            <p class="profile__info-list-title">Comp.:</p>
+            <p class="profile__info-list-description">{{ profile.company }}</p>
+          </li>
+          <li class="profile__info-list-item">
+            <p class="profile__info-list-title">Url:</p>
+            <p class="profile__info-list-description">{{ profile.url }}</p>
+          </li>
+          <li class="profile__info-list-item">
+            <p class="profile__info-list-title">Address:</p>
+            <p class="profile__info-list-description">{{ profile.address }}</p>
+          </li>
+          <li class="profile__info-list-item">
+            <p class="profile__info-list-title">Me:</p>
+            <p class="profile__info-list-description">{{ profile.me }}</p>
+          </li>
+        </ul>
+      </div>
+      <div class="profile__buttons">
+        <a class="a-link" ><button class="profile__button button">Edit profile</button></a>
+        <a class="a-link" href="{% url 'c_post' %}"><button class="profile__button profile__button--create-post button">Create post</button></a>
+      </div>
+    </div>
+  </div>
+</div>
