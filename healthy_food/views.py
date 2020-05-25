@@ -89,6 +89,7 @@ def login_user_post(request):
         request.session['user_id'] = user.pk
         login_form = LoginForm()
         return render(request, "login.html", context={'login_form': login_form})
+    return JsonResponse({"success" : "no"})
 
 def login_user(request):
     login_form = LoginForm()

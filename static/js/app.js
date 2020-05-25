@@ -85,12 +85,16 @@ function login(e) {
         },
         async: false,
         success: function(answer) {
-          document.querySelector('.active').innerHTML = answer;
-          document.getElementById('login_link').classList.add('deactivate');
-          document.getElementById('signup_link').classList.add('deactivate');
-          document.getElementById('profile_link').classList.remove('deactivate');
-          document.getElementById('logout_link').classList.remove('deactivate');
-          alert("Success")
+            if (answer.success == "no") {
+                alert("Not successfully")
+            } else {
+                document.querySelector('.active').innerHTML = answer;
+                document.getElementById('login_link').classList.add('deactivate');
+                document.getElementById('signup_link').classList.add('deactivate');
+                document.getElementById('profile_link').classList.remove('deactivate');
+                document.getElementById('logout_link').classList.remove('deactivate');
+                alert("Success")
+            }
         }
     });
 };
@@ -130,7 +134,7 @@ function calculator(e) {
         async: false,
         success: function(answer) {
             document.querySelector('.active').innerHTML = answer;
-            
+
             var ctx = document.getElementById('myChart').getContext('2d');
             var carbohydrate = document.getElementById('carbohydrate');
             var fat = document.getElementById('fat');
