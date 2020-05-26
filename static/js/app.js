@@ -3,7 +3,6 @@ const app = {
     show: new Event('show'),
     init: function(){
         app.pages = document.querySelectorAll('.page');
-        console.log(app.pages)
         app.pages.forEach((pg)=>{
             pg.addEventListener('show', app.pageShown);
         })
@@ -11,7 +10,7 @@ const app = {
         document.querySelectorAll('.nav-link').forEach((link)=>{
             link.addEventListener('click', app.nav);
         })
-        history.replaceState({}, 'Home', '#home');
+        history.replaceState({}, '', '#home');
         window.addEventListener('popstate', app.poppin);
 
         document.querySelector('.lgt').addEventListener('click', logout)
@@ -21,7 +20,6 @@ const app = {
         ev.preventDefault();
         let currentPage = ev.target.getAttribute('data-target');
         document.querySelector('.active').classList.remove('active');
-        console.log(currentPage)
         document.getElementById(currentPage).classList.add('active');
         history.pushState({}, currentPage, `#${currentPage}`);
         document.getElementById(currentPage).dispatchEvent(app.show);
@@ -227,9 +225,9 @@ function logout(e) {
         document.getElementById('login_link').classList.remove('deactivate');
         document.getElementById('signup_link').classList.remove('deactivate');
         document.getElementById('logout_link').classList.add('deactivate');
-        if (i == "yes") {
-            alert("You logout")
-        } 
+        document.querySelector('.active').classList.remove('active');
+        document.getElementById("home").classList.add('active');
+        document.querySelector('.active').innerHTML = i;
     })
     .catch(() => console.log('ошибка')); 
 };

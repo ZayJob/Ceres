@@ -110,7 +110,7 @@ def logout_user(request):
         del request.session['user_id']
     except KeyError:
         pass
-    return HttpResponse("yes")
+    return render(request, 'home.html')
 
 def profile(request):
     try:
