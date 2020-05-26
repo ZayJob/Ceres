@@ -27,13 +27,13 @@ body {
 html {
   overflow-x: hidden; }
 
-input[type="checkbox"]:checked,
-input[type="checkbox"]:not(:checked),
-input[type="radio"]:checked,
-input[type="radio"]:not(:checked)
+input[type="checkbox"],
+input[type="radio"]
  {
   position: absolute;
-  left: -9999px; }
+  left: -9999px;
+  visibility: hidden;
+}
 
 input[type="checkbox"]:checked + label,
 input[type="checkbox"]:not(:checked) + label,
