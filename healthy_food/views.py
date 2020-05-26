@@ -97,7 +97,7 @@ def login_user_post(request):
         request.session['user_id'] = user.pk
         login_form = LoginForm()
         return render(request, "login.html", context={'login_form': login_form})
-    return JsonResponse({"success" : "no"})
+    return HttpResponse("no")
 
 def login_user(request):
     login_form = LoginForm()
@@ -177,7 +177,7 @@ def search_food(request):
 
 def calculator_post(request):
     if request.POST.get('male') == "on":
-            BMR = 88.362 + 13.397 * int(request.POST.get('weight')) + 4.799 * int(request.POST.get('height')) - 5.677 * int(request.POST.get('age'))
+        BMR = 88.362 + 13.397 * int(request.POST.get('weight')) + 4.799 * int(request.POST.get('height')) - 5.677 * int(request.POST.get('age'))
     elif request.POST.get('female') == "on":
         BMR = 447.593 + 9.247 * int(request.POST.get('weight')) + 3.098 * int(request.POST.get('height')) - 4.330 * int(request.POST.get('age'))
 
