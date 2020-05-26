@@ -15,6 +15,10 @@ const app = {
 
         document.querySelector('.lgt').addEventListener('click', logout)
         document.querySelector('.prf').addEventListener('click', profile)
+        document.getElementById('try_now').addEventListener('click', go_login)
+        document.getElementById('c_p').addEventListener('click', go_login)
+        document.getElementById('s_u').addEventListener('click', go_login)
+        document.getElementById('lgn').addEventListener('click', go_login)
     },
     nav: function(ev){
         ev.preventDefault();
@@ -71,6 +75,27 @@ const app = {
         document.getElementById(hash).dispatchEvent(app.show);
     }
 }
+
+function go_login(e) {
+    e.preventDefault();
+    fetch(`/render_page?page=login`, 
+    { 
+        method: "GET",
+        headers:{"content-type":"application/x-www-form-urlencoded"}
+    })
+    .then( response => {
+        if (response.status !== 200) {
+            return Promise.reject(); 
+        }
+        return response.text()
+    })
+    .then( i => {
+        document.querySelector('.active').innerHTML = i;
+        const form_login = document.getElementById('login_form')
+        form_login.addEventListener('submit', login)
+    })
+    .catch(() => console.log('ошибка'));
+};
 
 function getCookie(name) {
     var cookieValue = null;
