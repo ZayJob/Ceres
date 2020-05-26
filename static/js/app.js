@@ -46,6 +46,9 @@ const app = {
                 } else if (`${currentPage}` == 'calculator') {
                     const form_calculator = document.getElementById('calculator_form')
                     form_calculator.addEventListener('submit', calculator)
+                } else if (`${currentPage}` == 'signup') {
+                    const form_signup = document.getElementById('signup_form')
+                    form_signup.addEventListener('submit', signup)
                 }
             }
         });
@@ -227,6 +230,37 @@ function profile(e) {
         }
     });
     request.send();
+};
+
+function signup(e) {
+    e.preventDefault();
+    const request = new XMLHttpRequest();
+    const url = "/signup";
+    const params = "first_name=" + document.getElementById("first_name").value + 
+        "&last_name=" + document.getElementById("last_name").value + 
+        "&username=" + document.getElementById("username").value + 
+        "&email=" + document.getElementById("email").value + 
+        "&password1=" + document.getElementById("password1").value + 
+        "&phone=" + document.getElementById("phone").value + 
+        "&url=" + document.getElementById("url").value + 
+        "&company=" + document.getElementById("company").value + 
+        "&address=" + document.getElementById("address").value + 
+        "&csrfmiddlewaretoken=" + getCookie('csrftoken');
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.addEventListener("readystatechange", () => {
+        if(request.readyState === 4 && request.status === 200) {
+            if (request.success == "no") {
+                alert("Not successfully")
+            } else {     
+                document.querySelector('.active').innerHTML = request.responseText;
+                const form_signup = document.getElementById('signup_form')
+                form_signup.addEventListener('submit', signup)
+            }
+        }
+    });
+     
+    request.send(params);
 };
 
 document.addEventListener('DOMContentLoaded', app.init);

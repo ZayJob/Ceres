@@ -19,36 +19,44 @@ from .forms import SignupForm, ProfileForm, LoginForm
 
 @transaction.atomic
 def signup_post(request):
-    user = User(
-        first_name=request.POST.get('first_name'),
-        last_name=request.POST.get('last_name'),
-        username=request.POST.get('username'),
-        email=request.POST.get('email'),
-        password=request.POST.get('password1'),
-    )
-    user.is_active = False
-    user.save()
-    profile = Profile(
-        url=request.POST.get("url"),
-        company=request.POST.get("company"),
-        phone=request.POST.get("phone"),
-        address=request.POST.get("address"),
-        me="",
-        user=user
-    )
-    profile.save()
-    current_site = get_current_site(request)
-    mail_subject = 'Activate your blog account.'
-    message = render_to_string('account/email_message.html', {
-        'user': user,
-        'domain': current_site.domain,
-        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-        'token': account_activation_token.make_token(user),
-    })
-    to_email = request.POST.get('email')
-    email = EmailMessage(mail_subject, message, to=[to_email])
-    email.send()
-    return render(request, 'account/confirm_email.html')
+    try:
+        user = User(
+            first_name=request.POST.get('first_name'),
+            last_name=request.POST.get('last_name'),
+            username=request.POST.get('username'),
+            email=request.POST.get('email'),
+            password=request.POST.get('password1'),
+        )
+        user.is_active = True
+        user.save()
+        profile = Profile(
+            url=request.POST.get("url"),
+            company=request.POST.get("company"),
+            phone=request.POST.get("phone"),
+            address=request.POST.get("address"),
+            me="",
+            user=user
+        )
+        profile.save()
+        
+        #current_site = get_current_site(request)
+        #mail_subject = 'Activate your blog account.'
+        #message = render_to_string('account/email_message.html', {
+        #    'user': user,
+        #    'domain': current_site.domain,
+        #    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+        #    'token': account_activation_token.make_token(user),
+        #})
+        #to_email = request.POST.get('email')
+        #email = EmailMessage(mail_subject, message, to=[to_email])
+        #email.send()
+
+        signup_form = SignupForm()
+        profile_form = ProfileForm()
+        return render(request, 'signup.html', context={'signup_form': signup_form, 'profile_form': profile_form})
+    except Exception:
+        return JsonResponse({"success" : "no"})
+
 
 def signup(request):
     signup_form = SignupForm()
