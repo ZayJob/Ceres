@@ -28,6 +28,7 @@ const app = {
     },
     pageShown: function(ev){
         ev.preventDefault();
+        document.querySelector('.active').innerHTML = "<div class='loader'></div>";
         let currentPage = document.querySelector('.active').getAttribute('id');
 
         fetch(`/render_page?page=${currentPage}`, 
