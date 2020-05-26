@@ -138,18 +138,17 @@ def diets(request):
         except KeyError:
             return {'posts': posts[len(posts) - 3:len(posts)]}
 
+def create_post_post(request):
+    post = Post(
+        title=request.POST.get("title"),
+        description=request.POST.get("description"),
+        text=request.POST.get('create-post-body-text'),
+    )
+    post.save()
+    return render(request, 'create_post.html')
+
 def create_post(request):
-    if request.method == 'POST':
-        post = Post(
-            title=request.POST.get("title"),
-            description=request.POST.get("description"),
-            text=request.POST.get('create-post-body-text'),
-            img=request.FILES.get('file')
-        )
-        post.save()
-        return render(request, 'publications/create_post.html')
-    else:
-        return render(request, 'publications/create_post.html')
+    return None
 
 def search_food_post(request):
     respons = req.get('https://api.nal.usda.gov/fdc/v1/foods/search?api_key=EVuhK3UbNku53YdTuw044oAUBsIJF0fGDpRhwKhG&query={0}'.format(request.POST.get('data')))
@@ -217,6 +216,8 @@ def render_page(request):
         cont = calculator(request)
     elif request.GET['page'] == 'signup':
         cont = signup(request)
+    elif request.GET['page'] == 'create_post':
+        cont = create_post(request)
     else:
         cont = None
     return render(request, "{0}.html".format(request.GET['page']), context=cont)

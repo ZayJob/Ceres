@@ -60,7 +60,7 @@ const app = {
                 }
             })
             .catch(() => console.log('ошибка'));  
-        }, 1500 );
+        }, 1322 );
     },
     poppin: function(ev){
         console.log(location.hash, 'popstate event');
@@ -256,10 +256,64 @@ function profile(e) {
             document.getElementById('login_link').classList.add('deactivate');
             document.getElementById('signup_link').classList.add('deactivate');
             document.getElementById('logout_link').classList.remove('deactivate');
+            document.querySelector('.active').classList.remove('active');
+            document.getElementById("profile").classList.add('active');
+            history.pushState({}, "profile", "#profile");
             document.querySelector('.active').innerHTML = i;
+            document.getElementById('btn').addEventListener('click', create_post_render);
         }
     })
     .catch(() => console.log('ошибка')); 
+};
+
+function create_post_render(e) {
+    e.preventDefault();
+    fetch(`/render_page?page=create_post`, 
+    { 
+        method: "GET",
+        headers: {"content-type": "application/x-www-form-urlencoded"},
+    })
+    .then( response => {
+        if (response.status !== 200) {
+            
+            return Promise.reject(); 
+        }
+        return response.text()
+    })
+    .then( i => {
+        document.querySelector('.active').classList.remove('active');
+        document.getElementById("create_post").classList.add('active');
+        history.pushState({}, "create_post", "#create_post");
+        document.querySelector('.active').innerHTML = i;
+        document.getElementById('submit').addEventListener('click', create_post);
+    })
+    .catch(() => console.log('ошибка'));
+};
+
+function create_post(e) {
+    e.preventDefault();
+    console.log(document.getElementById("file").files[0]['name'])
+    fetch(`/create_post`, 
+    { 
+        method: "POST",
+        body: "title=" + document.getElementById("title").value + 
+        "&description=" + document.getElementById("description").value + 
+        "&create-post-body-text=" + document.getElementById("create-post-body-text").value + 
+        "&file=" + document.getElementById("file").files[0],
+        headers: {"content-type": "application/x-www-form-urlencoded", "X-CSRFToken": getCookie('csrftoken') },
+    })
+    .then( response => {
+        if (response.status !== 200) {
+            
+            return Promise.reject(); 
+        }
+        return response.text()
+    })
+    .then( i => {
+        document.querySelector('.active').innerHTML = i;
+        document.getElementById('submit').addEventListener('click', create_post);
+    })
+    .catch(() => console.log('ошибка'));
 };
 
 function signup(e) {

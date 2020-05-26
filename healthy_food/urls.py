@@ -16,7 +16,7 @@ urlpatterns = [
     path('profile', profile),
     path('calculator', calculator_post),
     path('search_food', search_food_post),
-    path('create_post/', create_post, name='c_post'),
+    path('create_post', create_post_post),
     path('render_page', render_page),
 ]
 
