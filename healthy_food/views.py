@@ -102,18 +102,21 @@ def logout_user(request):
         del request.session['user_id']
     except KeyError:
         pass
-    return render(request, "home.html")
+    return HttpResponse("yes")
 
 def profile(request):
     try:
-        user = User.objects.get(pk=request.session['user_id'])
-        profile = Profile.objects.get(user_id=request.session['user_id'])
-    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
-        user = None
-        profile = None
-    if user != None and profile != None:
-        return {'user': user, 'profile': profile}
-    return None
+        request.session['user_id']
+        try:
+            user = User.objects.get(pk=request.session['user_id'])
+            profile = Profile.objects.get(user_id=request.session['user_id'])
+        except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+            user = None
+            profile = None
+        if user != None and profile != None:
+            return render(request, "profile.html", context={'user': user, 'profile': profile})
+    except KeyError:
+        return HttpResponse("no")
 
 def diets(request):
     try:
@@ -204,8 +207,6 @@ def render_page(request):
         cont = search_food(request)
     elif request.GET['page'] == 'calculator':
         cont = calculator(request)
-    elif request.GET['page'] == 'profile':
-        cont = profile(request)
     elif request.GET['page'] == 'signup':
         cont = signup(request)
     else:

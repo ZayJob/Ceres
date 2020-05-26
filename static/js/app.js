@@ -15,13 +15,13 @@ const app = {
         window.addEventListener('popstate', app.poppin);
 
         document.querySelector('.lgt').addEventListener('click', logout)
+        document.querySelector('.prf').addEventListener('click', profile)
     },
     nav: function(ev){
         ev.preventDefault();
         let currentPage = ev.target.getAttribute('data-target');
         document.querySelector('.active').classList.remove('active');
         console.log(currentPage)
-        console.log(document.getElementById(currentPage))
         document.getElementById(currentPage).classList.add('active');
         history.pushState({}, currentPage, `#${currentPage}`);
         document.getElementById(currentPage).dispatchEvent(app.show);
@@ -29,12 +29,14 @@ const app = {
     pageShown: function(ev){
         ev.preventDefault();
         let currentPage = document.querySelector('.active').getAttribute('id');
-        $.ajax({
-            url: `/render_page?page=${currentPage}`,
-            type: 'GET',
-            async: false,
-            success: function(answer) {
-                document.querySelector('.active').innerHTML = answer;
+        
+        const request = new XMLHttpRequest();
+        const url = `/render_page?page=${currentPage}`
+        request.open('GET', url);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-url');
+        request.addEventListener("readystatechange", () => {
+            if (request.readyState === 4 && request.status === 200) {
+                document.querySelector('.active').innerHTML = request.responseText;
                 if (`${currentPage}` == 'search_food') {
                     const form_search_food = document.getElementById('search_food_form')
                     form_search_food.addEventListener('submit', search_food)
@@ -46,7 +48,9 @@ const app = {
                     form_calculator.addEventListener('submit', calculator)
                 }
             }
-        }); 
+        });
+        
+        request.send();
     },
     poppin: function(ev){
         console.log(location.hash, 'popstate event');
@@ -75,65 +79,65 @@ function getCookie(name) {
 
 function login(e) {
     e.preventDefault();
-    $.ajax({
-        url: `/login`,
-        type: 'POST', 
-        data: {
-            'username': document.getElementById("username").value,
-            'password': document.getElementById("password").value,
-            csrfmiddlewaretoken: getCookie('csrftoken')
-        },
-        async: false,
-        success: function(answer) {
-            if (answer.success == "no") {
+    const request = new XMLHttpRequest();
+    const url = "/login";
+    const params = "username=" + document.getElementById("username").value + 
+        "&password=" + document.getElementById("password").value + 
+        "&csrfmiddlewaretoken=" + getCookie('csrftoken');
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.addEventListener("readystatechange", () => {
+        if(request.readyState === 4 && request.status === 200) {       
+            if (request.success == "no") {
                 alert("Not successfully")
             } else {
-                document.querySelector('.active').innerHTML = answer;
+                document.querySelector('.active').innerHTML = request.responseText;
                 document.getElementById('login_link').classList.add('deactivate');
                 document.getElementById('signup_link').classList.add('deactivate');
-                document.getElementById('profile_link').classList.remove('deactivate');
                 document.getElementById('logout_link').classList.remove('deactivate');
                 alert("Success")
             }
         }
     });
+     
+    request.send(params);
 };
 
 function search_food(e) {
     e.preventDefault();
-    $.ajax({
-        url: `/search_food`,
-        type: 'POST', 
-        data: {
-            'data': document.getElementById("data").value,
-            csrfmiddlewaretoken: getCookie('csrftoken')
-        },
-        async: false,
-        success: function(answer) {
-            document.querySelector('.active').innerHTML = answer;
+    const request = new XMLHttpRequest();
+    const url = "/search_food";
+    const params = "data=" + document.getElementById("data").value + 
+        "&csrfmiddlewaretoken=" + getCookie('csrftoken');
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.addEventListener("readystatechange", () => {
+        if(request.readyState === 4 && request.status === 200) {       
+            document.querySelector('.active').innerHTML = request.responseText;
             const form_search_food = document.getElementById('search_food_form')
             form_search_food.addEventListener('submit', search_food)
         }
     });
+     
+    request.send(params);
 };
 
 function calculator(e) {
     e.preventDefault();
-    $.ajax({
-        url: `/calculator`,
-        type: 'POST', 
-        data: {
-            'age': document.getElementById("age").value,
-            'female': document.getElementById("female").value,
-            'male': document.getElementById("male").value,
-            'weight': document.getElementById("weight").value,
-            'height': document.getElementById("height").value,
-            'activ': document.getElementById("activ").value,
-            csrfmiddlewaretoken: getCookie('csrftoken')
-        },
-        async: false,
-        success: function(answer) {
-            document.querySelector('.active').innerHTML = answer;
+    const request = new XMLHttpRequest();
+    const url = "/calculator";
+    const params = 'age=' + document.getElementById("age").value + 
+        '&female=' + document.getElementById("female").value + 
+        '&male=' + document.getElementById("male").value + 
+        '&weight=' + document.getElementById("weight").value + 
+        '&height=' + document.getElementById("height").value + 
+        '&activ=' + document.getElementById("activ").value + 
+        "&csrfmiddlewaretoken=" + getCookie('csrftoken');
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    request.addEventListener("readystatechange", () => {
+        if(request.readyState === 4 && request.status === 200) {       
+            document.querySelector('.active').innerHTML = request.responseText;
 
             var ctx = document.getElementById('myChart').getContext('2d');
             var carbohydrate = document.getElementById('carbohydrate');
@@ -181,24 +185,48 @@ function calculator(e) {
             form_calculator.addEventListener('submit', calculator)
         }
     });
+     
+    request.send(params);
 };
 
 function logout(e) {
     e.preventDefault();
-    $.ajax({
-        url: `/logout`,
-        type: 'GET', 
-        async: false,
-        success: function(answer) {
-            document.querySelector('.active').classList.remove('active');
-            document.getElementById('home').classList.add('active');
-            document.querySelector('.active').innerHTML = answer;
+    const request = new XMLHttpRequest();
+    const url = `/logout`
+    request.open('GET', url);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-url');
+    request.addEventListener("readystatechange", () => {
+        if (request.readyState === 4 && request.status === 200) {
             document.getElementById('login_link').classList.remove('deactivate');
             document.getElementById('signup_link').classList.remove('deactivate');
-            document.getElementById('profile_link').classList.add('deactivate');
             document.getElementById('logout_link').classList.add('deactivate');
+            if (request.responseText == "yes") {
+                alert("You logout")
+            } 
         }
     });
+    request.send();
+};
+
+function profile(e) {
+    e.preventDefault();
+    const request = new XMLHttpRequest();
+    const url = `/profile`
+    request.open('GET', url);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-url');
+    request.addEventListener("readystatechange", () => {
+        if (request.readyState === 4 && request.status === 200) {
+            if (request.responseText == "no") {
+                alert("Auth pls")
+            } else {
+                document.getElementById('login_link').classList.add('deactivate');
+                document.getElementById('signup_link').classList.add('deactivate');
+                document.getElementById('logout_link').classList.remove('deactivate');
+                document.querySelector('.active').innerHTML = request.responseText;
+            }
+        }
+    });
+    request.send();
 };
 
 document.addEventListener('DOMContentLoaded', app.init);

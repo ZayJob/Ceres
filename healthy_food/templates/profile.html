@@ -57,8 +57,9 @@
         </ul>
       </div>
       <div class="profile__buttons">
-        <a class="a-link" ><button class="profile__button button">Edit profile</button></a>
-        <a class="a-link" href="{% url 'c_post' %}"><button class="profile__button profile__button--create-post button">Create post</button></a>
+        <a class="a-link nav-link" data-target="create_post" href="#">
+          <button class="profile__button profile__button--create-post button">Create post</button>
+        </a>
       </div>
     </div>
   </div>
