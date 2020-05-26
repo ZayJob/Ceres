@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_K')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'healthy_food'
+    'healthy_food.apps.HealthyFoodConfig',
+    'six',
 ]
 
 MIDDLEWARE = [
@@ -80,14 +81,15 @@ WSGI_APPLICATION = 'web_site_engine.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'HF_DB',
-        'USER': 'zaybyst',
-        'PASSWORD': '123456789qwe',
-        'HOST': '34.66.26.6',
-        'PORT': '3306'
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'df3cm7p2bg9b3q',
+        'USER': 'asbqgboyhrmwjv',
+        'PASSWORD': '868d9509e4e4b5819ad7e959df1d00810932fa7bfea3e9dcd07a8c595b70f8fb',
+        'HOST': 'ec2-34-234-228-127.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -129,8 +131,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+MEDIA_URL = '/images/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'vladbubeniuk@gmail.com'
+EMAIL_HOST_PASSWORD = '1676230developer'
+EMAIL_PORT = 587
 
 django_heroku.settings(locals())

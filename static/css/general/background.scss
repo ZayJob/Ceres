@@ -1,0 +1,154 @@
+.background {
+
+  z-index: -1;
+  position: fixed;
+
+    &__broccoli {
+
+        &_1 {
+          position: absolute;
+          width: 141.29px;
+          height: 151.88px;
+          left: 66px;
+          top: 14.85px;
+
+          background: url("/static/images/broccoli_1.png");
+          transform: rotate(-27.78deg);
+          background-size: 100% 100%;
+        }
+
+        &_2 {
+          position: absolute;
+          width: 137.54px;
+          height: 135.53px;
+          left: 1436px;
+          top: 19.08px;
+
+          background: url("/static/images/broccoli_2.png");
+
+          transform: rotate(-135.15deg);
+
+          background-size: 100% 100%;
+        }
+
+        &_3 {
+          position: absolute;
+          width: 250.11px;
+          height: 268.87px;
+          top: 520px;
+          left: 669px;
+
+          background: url("/static/images/broccoli_1.png");
+          transform: rotate(34.6deg);
+          background-size: 100% 100%;
+        }
+
+        &_4 {
+          position: absolute;
+          width: 141.29px;
+          height: 151.88px;
+          left: 1000px;
+          top: 352px;
+
+          background: url("/static/images/broccoli_1.png");
+          transform: rotate(64.35deg);
+          background-size: 100% 100%;
+        }
+
+        &_5 {
+          position: absolute;
+          width: 141.29px;
+          height: 151.88px;
+          left: 46px;
+          top: 1382.59px;
+
+          background: url("/static/images/broccoli_1.png");
+          transform: rotate(-44.25deg);
+          background-size: 100% 100%;
+        }
+
+        &_6 {
+          position: absolute;
+          width: 137.54px;
+          height: 135.53px;
+          left: calc(50% - 137.54px/2 + 142.56px);
+          top: 800px;
+
+          background: url("/static/images/broccoli_2.png");
+          transform: rotate(-130.63deg);
+          background-size: 100% 100%;
+        }
+
+        &_7 {
+          position: absolute;
+          width: 181.58px;
+          height: 178.92px;
+          right: 20.26px;
+          top: 1700.65px;
+
+          background: url("/static/images/broccoli_2.png");
+          transform: rotate(-96.63deg);
+          background-size: 100% 100%;
+        }
+
+        &_8 {
+          position: absolute;
+          width: 250.11px;
+          height: 268.87px;
+          left: calc(50% - 250.11px/2 + 218.72px);
+          top: 1797px;
+
+          background: url("/static/images/broccoli_1.png");
+          transform: rotate(34.6deg);
+          background-size: 100% 100%;
+        }
+
+        &_9 {
+          position: absolute;
+          width: 141.29px;
+          height: 151.88px;
+          right: -15.29px;
+          top: 2772.59px;
+
+          background: url("/static/images/broccoli_1.png");
+          transform: rotate(-44.25deg);
+          background-size: 100% 100%;
+        }
+
+        &_10 {
+          position: absolute;
+          width: 227.9px;
+          height: 213.45px;
+          left: 500px;
+          top: 1071px;
+
+          background: url("/static/images/broccoli_2.png");
+          transform: rotate(120.92deg);
+          background-size: 100% 100%;
+        }
+
+        &_11 {
+          position: absolute;
+          width: 70.43px;
+          height: 75.71px;
+          left: calc(50% - 70.43px/2 + 122.16px);
+          top: 3260px;
+
+          background: url("/static/images/broccoli_1.png");
+          transform: rotate(18.44deg);
+          background-size: 100% 100%;
+        }
+
+        &_12 {
+          position: absolute;
+          width: 163.99px;
+          height: 176.29px;
+          right: 100.97px;
+          top: 3403.27px;
+
+          background: url("/static/images/broccoli_1.png");
+          transform: rotate(-179.3deg);
+          background-size: 100% 100%;
+        }
+    }
+}

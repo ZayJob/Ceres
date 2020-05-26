@@ -3,16 +3,499 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        {% block Title %}
+        {% block title %}
             Healthy food
         {% endblock %}
     </title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Arimo&family=Manjari:wght@700&family=Montserrat:wght@400&family=Montserrat:wght@700&family=Mr+Dafoe&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.scss" %}">
+    <link rel="stylesheet" href="{% static "css/style.css.map" %}">
 </head>
 <body>
-    {% block Context %}
-        
-    {% endblock %}
+    <div class="background">
+        <div class="background__broccoli_1"></div>
+        <div class="background__broccoli_2"></div>
+        <div class="background__broccoli_3"></div>
+        <div class="background__broccoli_4"></div>
+        <div class="background__broccoli_5"></div>
+        <div class="background__broccoli_6"></div>
+        <div class="background__broccoli_7"></div>
+        <div class="background__broccoli_8"></div>
+        <div class="background__broccoli_9"></div>
+        <div class="background__broccoli_10"></div>
+        <div class="background__broccoli_11"></div>
+        <div class="background__broccoli_12"></div>
+    </div>
+    <header class="header">
+        <nav class="header__navbar navbar">
+            <div class="navbar__menu-wrapper navbar__menu-wrapper_left">
+                <div class="navbar__menu-item menu-item_left">
+                    <a class="menu-item__title menu-item__title_current nav-link" data-target="home" href="#">Home</a>
+                </div>
+                <div class="navbar__menu-item menu-item_left">
+                    <a class="menu-item__title nav-link" data-target="search_food" href="#">Search food</a>
+                </div>
+                <div class="navbar__menu-item menu-item_left">
+                    <a class="menu-item__title nav-link" data-target="diets" href="#">Diets</a>
+                </div>
+                <div class="navbar__menu-item menu-item_left">
+                    <a class="menu-item__title nav-link" data-target="calculator" href="#">Calculator</a>
+                </div>
+            </div>
+    
+            <div class="navbar__sitename-wrapper">
+                <a data-target="home" href="#"class="navbar__sitename-title nav-link">Healthy food</a>
+            </div>
+    
+            <div class="navbar__menu-wrapper navbar__menu-wrapper_right">
+                <div class="navbar__menu-item navbar__menu-item menu-item_right" id="login_link">
+                    <a class="menu-item__title nav-link" data-target="login" href="#">Log in</a>
+                </div>
+                <div class="navbar__menu-item menu-item_right" id="signup_link">
+                    <a class="menu-item__title nav-link" data-target="signup" href="#">Sign up</a>
+                </div>
+                <div class="navbar__menu-item menu-item_right deactivate" id="logout_link">
+                    <a class="menu-item__title lgt">Logout</a>
+                </div>
+                <a class="navbar__menu-item menu-item_right prf" href="#"  id="profile_link">
+                    <div class="menu-item__title menu-item__title_svg">
+                    <svg width="100%" height="100%" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24.5 0.75C11.39 0.75 0.75 11.39 0.75 24.5C0.75 37.61 11.39 48.25 24.5 48.25C37.61 48.25 48.25 37.61 48.25 24.5C48.25 11.39 37.61 0.75 24.5 0.75ZM24.5 7.875C28.4425 7.875 31.625 11.0575 31.625 15C31.625 18.9425 28.4425 22.125 24.5 22.125C20.5575 22.125 17.375 18.9425 17.375 15C17.375 11.0575 20.5575 7.875 24.5 7.875ZM24.5 41.6C18.5625 41.6 13.3138 38.56 10.25 33.9525C10.3212 29.2263 19.75 26.6375 24.5 26.6375C29.2262 26.6375 38.6787 29.2263 38.75 33.9525C35.6862 38.56 30.4375 41.6 24.5 41.6Z" fill="white"/>
+                    </svg>
+                    </div>
+                </a>
+                <div class="navbar__menu-item menu-item_right">
+                    <a class="menu-item__title">en</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="context">
+        <div class="page active" id="home">
+        <div class="container">
+            <div class="top-content">
+                <div class="top-content__post-wrapper">
+                <div class="top-content__post top-post">
+                    <h1 class="top-post__title">Wealth is nothing without health</h1>
+                    <h2 class="top-post__second-title">5 Diets That Are Supported by Science</h2>
+                    <a class="a-link nav-link" data-target="login" href="#"><button class="top-post__button button">Try now</button></a>
+                    <p class="top-post__description">Here are 5 healthy diets that are scientifically proven to be effective.</p>
+                </div>
+                </div>
+                <div class="top-content__post-wrapper">
+                <div class="top-content__post top-post top-post_img">
+                    <h2 class="top-post__col-text">step&nbsp;by&nbsp;step</h2>
+                    <div class="top-post__image-wrapper">
+                    
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="mid-content">
+                <div class="mid-content__post post">
+                <div class="post__img-bottom">
+                    <div class="post__img-wrapper"></div>
+                    <h3 class="post__img-title">Low-carb, whole-food diet</h3>
+                </div>
+                
+                <p class="post__description">
+                    The low-carb, whole-food diet is perfect for people who need to lose weight, optimize health, and lower their risk of disease.<br><br>
+                    It’s flexible, allowing you to fine-tune your carb intake depending on your goals.<br><br>
+                    This diet is high in vegetables, meat, fish, eggs, fruits, nuts, and fats but low in starches, sugars, and processed foods.<br><br>
+                </p>
+
+                <div class="post__footer">
+                    <h2 class="post__number" style="color: #FFA756;">01</h2>
+                    <div class="post__rate-stars rate-stars">
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="mid-content__post post">
+                <div class="post__img-bottom">
+                    <div class="post__img-wrapper"></div>
+                    <h3 class="post__img-title">Low-carb, whole-food diet</h3>
+                </div>
+                
+                <p class="post__description">
+                    The low-carb, whole-food diet is perfect for people who need to lose weight, optimize health, and lower their risk of disease.<br><br>
+                    It’s flexible, allowing you to fine-tune your carb intake depending on your goals.<br><br>
+                    This diet is high in vegetables, meat, fish, eggs, fruits, nuts, and fats but low in starches, sugars, and processed foods.<br><br>
+                </p>
+
+                <div class="post__footer">
+                    <h2 class="post__number" style="color: #F1F50A;">02</h2>
+                    <div class="post__rate-stars rate-stars">
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="mid-content__post post">
+                <div class="post__img-bottom">
+                    <div class="post__img-wrapper"></div>
+                    <h3 class="post__img-title">Low-carb, whole-food diet</h3>
+                </div>
+                
+                <p class="post__description">
+                    The low-carb, whole-food diet is perfect for people who need to lose weight, optimize health, and lower their risk of disease.<br><br>
+                    It’s flexible, allowing you to fine-tune your carb intake depending on your goals.<br><br>
+                    This diet is high in vegetables, meat, fish, eggs, fruits, nuts, and fats but low in starches, sugars, and processed foods.<br><br>
+                </p>
+
+                <div class="post__footer">
+                    <h2 class="post__number" style="color: #99F451;">03</h2>
+                    <div class="post__rate-stars rate-stars">
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
+                <div class="mid-content__post post">
+                <div class="post__img-bottom">
+                    <div class="post__img-wrapper"></div>
+                    <h3 class="post__img-title">Low-carb, whole-food diet</h3>
+                </div>
+                
+                <p class="post__description">
+                    The low-carb, whole-food diet is perfect for people who need to lose weight, optimize health, and lower their risk of disease.<br><br>
+                    It’s flexible, allowing you to fine-tune your carb intake depending on your goals.<br><br>
+                    This diet is high in vegetables, meat, fish, eggs, fruits, nuts, and fats but low in starches, sugars, and processed foods.<br><br>
+                </p>
+
+                <div class="post__footer">
+                    <h2 class="post__number" style="color: #56D6FF;">04</h2>
+                    <div class="post__rate-stars rate-stars">
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="mid-content__post post">
+                <div class="post__img-bottom">
+                    <div class="post__img-wrapper"></div>
+                    <h3 class="post__img-title">Low-carb, whole-food diet</h3>
+                </div>
+                
+                <p class="post__description">
+                    The low-carb, whole-food diet is perfect for people who need to lose weight, optimize health, and lower their risk of disease.<br><br>
+                    It’s flexible, allowing you to fine-tune your carb intake depending on your goals.<br><br>
+                    This diet is high in vegetables, meat, fish, eggs, fruits, nuts, and fats but low in starches, sugars, and processed foods.<br><br>
+                </p>
+
+                <div class="post__footer">
+                    <h2 class="post__number" style="color: #5D7CE9;">05</h2>
+                    <div class="post__rate-stars rate-stars">
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    <div class="rate-stars__star">
+                        <svg width="100%" height="100%" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8 0L24.2454 11.7467L38.6309 11.7467L26.9928 19.0066L31.4381 30.7533L19.8 23.4934L8.16185 30.7533L12.6072 19.0066L0.969082 11.7467L15.3546 11.7467L19.8 0Z" fill="#FBDD91"/>
+                        </svg>
+                        
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+
+                <div class="mid-content__post post post_transparent">
+                <div class="post__create create">
+                    <a class="a-link nav-link" data-target="login" href="#">
+                        <button class="create__button button">
+                        <svg width="30" height="36" viewBox="0 0 30 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M29.8387 20.5H17.2581V35.5H13.0645V20.5H0.483887V15.5H13.0645V0.5H17.2581V15.5H29.8387V20.5Z" fill="white"/>
+                        </svg>
+                        </button>
+                    </a>
+                    <h2 class="create__title">CREATE <br>POST</h2>
+                </div>
+                </div>
+            </div>
+
+            <div class="contributors">
+                <div class="contributors__contributor-wrapper">
+                <div class="contributors__contributor contributor">
+                    <h3 class="contributor__title">Dianne Flores</h3>
+                    <div class="contributor__img-wrapper"></div>
+                    <p class="contributor__email">john.gardner@example.com</p>
+                    <p class="contributor__address">4228 Homestead Rd undefined Cedar Hill, California 38597 United States</p>
+                    <p class="contributor__phone-number">(252) 555-0126</p>
+                </div>
+                </div>
+                <div class="contributors__contributor-wrapper">
+                <div class="contributors__contributor contributor">
+                    <h3 class="contributor__title">Dianne Flores</h3>
+                    <div class="contributor__img-wrapper"></div>
+                    <p class="contributor__email">john.gardner@example.com</p>
+                    <p class="contributor__address">4228 Homestead Rd undefined Cedar Hill, California 38597 United States</p>
+                    <p class="contributor__phone-number">(252) 555-0126</p>
+                </div>
+                </div>
+                <div class="contributors__contributor-wrapper">
+                <div class="contributors__contributor contributor">
+                    <h3 class="contributor__title">Dianne Flores</h3>
+                    <div class="contributor__img-wrapper"></div>
+                    <p class="contributor__email">john.gardner@example.com</p>
+                    <p class="contributor__address">4228 Homestead Rd undefined Cedar Hill, California 38597 United States</p>
+                    <p class="contributor__phone-number">(252) 555-0126</p>
+                </div>
+                </div>
+                <div class="contributors__contributor-wrapper">
+                <div class="contributors__contributor contributor">
+                    <h3 class="contributor__title">Dianne Flores</h3>
+                    <div class="contributor__img-wrapper"></div>
+                    <p class="contributor__email">john.gardner@example.com</p>
+                    <p class="contributor__address">4228 Homestead Rd undefined Cedar Hill, California 38597 United States</p>
+                    <p class="contributor__phone-number">(252) 555-0126</p>
+                </div>
+                </div>
+                
+            </div>
+
+            <div class="awards">
+                <div class="awards__award-wrapper">
+                <div class="awards__award award" style="background: linear-gradient(215.22deg, #FFFFFF 0%, #FF9EF0 100%);">
+                    <div class="award__img-wrapper"></div>
+                    <p class="award__year">2020</p>
+                </div>
+                </div>
+                <div class="awards__award-wrapper">
+                <div class="awards__award award" style="background: linear-gradient(215.22deg, #FFFFFF 0%, #6AFFDB 100%);">
+                    <div class="award__img-wrapper"></div>
+                    <p class="award__year">2019</p>
+                </div>
+                </div>
+                <div class="awards__award-wrapper">
+                <div class="awards__award award" style="background: linear-gradient(215.22deg, #FFFFFF 0%, #F48787 100%);">
+                    <div class="award__img-wrapper"></div>
+                    <p class="award__year">2018</p>
+                </div>
+                </div>
+                <div class="awards__award-wrapper">
+                <div class="awards__award award" style="background: linear-gradient(215.22deg, #FFFFFF 0%, #EBFF6F 100%);">
+                    <div class="award__img-wrapper"></div>
+                    <p class="award__year">2017</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="page" id="diets">
+        </div>
+        <div class="page" id="search_food">
+        </div>
+        <div class="page" id="calculator">
+        </div>
+        <div class="page" id="profile">
+        </div>
+        <div class="page" id="login">
+        </div>
+        <div class="page" id="signup">
+        </div>
+        <div class="page" id="logout">
+        </div>
+        <div class="page" id="create_post">
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__menu footer-menu">
+            <div class="footer-menu__menu-item footer-menu__menu-item_sitename">
+                <a class="footer-menu__sitename-title nav-link" data-target="home" href="#">Healthy food</a>
+            </div>
+
+            <div class="flex-break-item flex-break-item_footer"></div>
+
+            <div class="footer-menu__menu-item">
+                <div class="footer-menu__submenu-wrapper">
+                    <div class="footer-menu__submenu submenu">
+                        <p class="submenu__title">Mobile app</p>
+                        <a href="#" class="submenu__item">Features</a>
+                        <a href="#" class="submenu__item">Live share</a>
+                        <a href="#" class="submenu__item">Video record</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-menu__menu-item">
+                <div class="footer-menu__submenu-wrapper">
+                    <div class="footer-menu__submenu submenu">
+                        <p class="submenu__title">Mobile app</p>
+                        <a href="#" class="submenu__item">Features</a>
+                        <a href="#" class="submenu__item">Live share</a>
+                        <a href="#" class="submenu__item">Video record</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-break-item flex-break-item_footer"></div>
+
+            <div class="footer-menu__menu-item">
+                <div class="footer-menu__submenu-wrapper">
+                    <div class="footer-menu__submenu submenu">
+                        <p class="submenu__title">Mobile app</p>
+                        <a href="#" class="submenu__item">Features</a>
+                        <a href="#" class="submenu__item">Live share</a>
+                        <a href="#" class="submenu__item">Video record</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-menu__menu-item">
+                <div class="footer-menu__submenu-wrapper">
+                    <div class="footer-menu__submenu submenu submenu_buttons">
+                        <a class="a-link nav-link" data-target="signup" href="#"><button class="submenu__button button">Sign up</button></a>
+                        <a class="a-link nav-link" data-target="login" href="#"><button class="submenu__button button">Login</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="footer__copyright-text">
+            Photo, Inc. 2019. We love our users!
+        </a>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src="{% static "js/app.js" %}"></script>
 </body>
 </html>

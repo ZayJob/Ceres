@@ -1,0 +1,125 @@
+.create-post {
+
+  &__post-form {
+    width: 100%;
+    display: flex;
+    padding: 69px 64px 42px 140px;
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+      padding: 30px 20px;
+    }
+  }
+
+  &__post-form-input {
+    width: 100%;
+    border: 1px solid #000000;
+    border-radius: 60px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Montserrat";
+    margin-bottom: 21px;
+
+    padding: 0 20px;
+
+    @media screen and (max-width: 600px) {
+      text-align: start;
+    }
+
+    &::placeholder {
+      font-family: "Montserrat";
+      color: #000;
+
+      
+    }
+  }
+
+  &__post-form-block-wrapper {
+    &--left {
+      flex-grow: 3;
+    }
+
+    &--right {
+      min-width: 40%;
+      padding-left: 36px;
+
+      @media screen and (max-width: 600px) {
+        padding: 0;
+      }
+    }
+
+  }
+
+  &__post-form-textarea {
+    width: 100%;
+    height: 379px;
+    border: 1px solid #000000;
+    border-radius: 60px;
+    font-size: 20px;
+    padding: 30px;
+    font-family: "Montserrat";
+    margin-bottom: 21px;
+
+
+    &::placeholder {
+      font-size: 36px;
+      text-align: center;
+      vertical-align: middle;
+      font-family: "Montserrat";
+      color: #000;
+      font-weight: 200;
+      line-height: 319px;
+
+    }
+
+
+  }
+
+  &__upload-image {
+    height: 560px;
+    border: 1px solid #000000;
+    border-radius: 60px;
+
+    @media screen and (max-width: 600px) {
+      height: 400px;
+    }
+    
+  }
+
+  &__upload-image-plus-icon {
+    font-size: 80px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 150px;
+  }
+
+  &__upload-image-text {
+    font-family: "Montserrat";
+    font-size: 24px;
+    text-align: center;
+    margin-top: 110px;
+    display: block;
+  }
+
+  &__submit-button {
+    width: 100%;
+    height: 50px;
+    font-family: "Montserrat";
+    font-size: 24px;
+
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+
+    &--mobile {
+      display: none;
+
+      @media screen and (max-width: 600px) {
+        display: block;
+        margin-top: 21px;
+      }
+    }
+  }
+}

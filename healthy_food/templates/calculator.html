@@ -1,0 +1,60 @@
+
+<div class="container calculator">
+  <div class="post calculator__post">
+    <div class="calculator__post-block-wrapper calculator__post-block-wrapper--left">
+      <form method="POST" id="calculator_form">
+        {% csrf_token %}
+        <div class="calculator__info-wrapper">
+            <h2 class="calculator__title">Culculator kcal</h2>
+            <p class="calculator__formula-title">Formula: Harris Benedict</p>
+            <input type="text" name="age" id="age" class="calculator__input" placeholder="Age:">
+            <div class="calculator__sex-radios">
+              <label class="calculator__sex-radio-label">
+                <input name="female" type="radio" id="female" class="calculator__sex-radio">
+                <span class="calculator__sex-radio-text">Female</span>
+              </label>
+              <label class="calculator__sex-radio-label">
+                <input name="male" type="radio" id="male" class="calculator__sex-radio">
+                <span class="calculator__sex-radio-text">Male</span>
+              </label>
+            </div>
+            <input type="text" class="calculator__input" name="weight" id="weight" placeholder="Weight:">
+            <span class="calculator__input-right-label">kg</span>
+            <input type="text" class="calculator__input" name="height" id="height" placeholder="Height:">
+            <span class="calculator__input-right-label">cm</span>
+            <select class="calculator__input" name="activ" id="activ">
+              <option>Сидячий образ жизни</option>
+              <option>Умеренная активность (легкие физические нагрузки либо занятия 1-3 раз в неделю)</option>
+              <option>Средняя активность (занятия 3-5 раз в неделю)</option>
+              <option>Активные люди (интенсивные нагрузки, занятия 6-7 раз в неделю)</option>
+              <option>Спортсмены и люди, выполняющие сходные нагрузки (6-7 раз в неделю)</option>
+            </select>
+            <button type="submit" class="button calculator__button">Calculate</button>
+        </div>
+      </form>
+    </div>
+    <div class="calculator__post-block-wrapper calculator__post-block-wrapper--right">
+      <div class="calculator__diagram-wrapper">
+        <canvas id="myChart"></canvas>
+      </div>
+      <div class="calculator__diagram-info-wrapper">
+        <div class="calculator__diagram-info-item">
+          <p class="calculator__diagram-info-key calculator__diagram-info-key--grey">Energy</p>
+          <span class="calculator__diagram-info-value">{{ energy }} kcal</span>
+        </div>
+        <div class="calculator__diagram-info-item">
+          <p class="calculator__diagram-info-key calculator__diagram-info-key--purple">Carbohydrate</p>
+          <span class="calculator__diagram-info-value" id="carbohydrate">{{ carbohydrate }} g</span>
+        </div>
+        <div class="calculator__diagram-info-item">
+          <p class="calculator__diagram-info-key calculator__diagram-info-key--blue">Fat</p>
+          <span class="calculator__diagram-info-value" id="fat">{{ fat }} g</span>
+        </div>
+        <div class="calculator__diagram-info-item">
+          <p class="calculator__diagram-info-key calculator__diagram-info-key--yellow">Protein</p>
+          <span class="calculator__diagram-info-value" id="protein">{{ protein }} g</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
