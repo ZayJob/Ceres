@@ -25,7 +25,7 @@ const app = {
         let currentPage = ev.target.getAttribute('data-target');
         document.querySelector('.active').classList.remove('active');
         document.getElementById(currentPage).classList.add('active');
-        history.pushState({}, currentPage, `#${currentPage}`);
+        history.pushState({}, currentPage, '#' + currentPage);
         document.getElementById(currentPage).dispatchEvent(app.show);
     },
     pageShown: function(ev){
@@ -35,7 +35,7 @@ const app = {
         setTimeout( function(){
             let currentPage = document.querySelector('.active').getAttribute('id');
 
-            fetch(`/render_page?page=${currentPage}`, 
+            fetch('/render_page?page=' + currentPage, 
                 { 
                 method: "GET", 
                 headers:{"content-type":"application/x-www-form-urlencoded"} 
@@ -49,16 +49,16 @@ const app = {
             })
             .then( i => {
                 document.querySelector('.active').innerHTML = i;
-                if (`${currentPage}` == 'search_food') {
+                if (currentPage == 'search_food') {
                     const form_search_food = document.getElementById('search_food_form')
                     form_search_food.addEventListener('submit', search_food)
-                } else if (`${currentPage}` == 'login') {
+                } else if (currentPage == 'login') {
                     const form_login = document.getElementById('login_form')
                     form_login.addEventListener('submit', login)
-                } else if (`${currentPage}` == 'calculator') {
+                } else if (currentPage == 'calculator') {
                     const form_calculator = document.getElementById('calculator_form')
                     form_calculator.addEventListener('submit', calculator)
-                } else if (`${currentPage}` == 'signup') {
+                } else if (currentPage == 'signup') {
                     const form_signup = document.getElementById('signup_form')
                     form_signup.addEventListener('submit', signup)
                 }
@@ -78,7 +78,7 @@ const app = {
 
 function go_login(e) {
     e.preventDefault();
-    fetch(`/render_page?page=login`, 
+    fetch('/render_page?page=login', 
     { 
         method: "GET",
         headers:{"content-type":"application/x-www-form-urlencoded"}
@@ -114,7 +114,7 @@ function getCookie(name) {
 
 function login(e) {
     e.preventDefault();
-    fetch(`/login`, 
+    fetch('/login', 
     { 
         method: "POST",
         body: "username=" + document.getElementById("username").value + "&password=" + document.getElementById("password").value,
@@ -143,7 +143,7 @@ function login(e) {
 
 function search_food(e) {
     e.preventDefault();
-    fetch(`/search_food`, 
+    fetch('/search_food', 
     { 
         method: "POST",
         body: "data=" + document.getElementById("data").value,
@@ -166,7 +166,7 @@ function search_food(e) {
 
 function calculator(e) {
     e.preventDefault();
-    fetch(`/calculator`, 
+    fetch('/calculator', 
     { 
         method: "POST",
         body: 'age=' + document.getElementById("age").value + 
@@ -237,7 +237,7 @@ function calculator(e) {
 
 function logout(e) {
     e.preventDefault();
-    fetch(`/logout`, 
+    fetch('/logout', 
     { 
         method: "GET", 
         headers:{"content-type":"application/x-www-form-urlencoded"} 
@@ -262,7 +262,7 @@ function logout(e) {
 
 function profile(e) {
     e.preventDefault();
-    fetch(`/profile`, 
+    fetch('/profile', 
     { 
         method: "GET", 
         headers:{"content-type":"application/x-www-form-urlencoded"} 
@@ -293,7 +293,7 @@ function profile(e) {
 
 function create_post_render(e) {
     e.preventDefault();
-    fetch(`/render_page?page=create_post`, 
+    fetch('/render_page?page=create_post', 
     { 
         method: "GET",
         headers: {"content-type": "application/x-www-form-urlencoded"},
@@ -318,7 +318,7 @@ function create_post_render(e) {
 function create_post(e) {
     e.preventDefault();
     console.log(document.getElementById("file").files[0]['name'])
-    fetch(`/create_post`, 
+    fetch('/create_post', 
     { 
         method: "POST",
         body: "title=" + document.getElementById("title").value + 
@@ -343,7 +343,7 @@ function create_post(e) {
 
 function signup(e) {
     e.preventDefault();
-    fetch(`/signup`, 
+    fetch('/signup', 
     { 
         method: "POST",
         body: "first_name=" + document.getElementById("first_name").value + 
