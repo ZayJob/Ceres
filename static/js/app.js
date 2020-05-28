@@ -3,7 +3,6 @@ const app = {
     show: new Event('show'),
     init: function(){
         app.pages = document.querySelectorAll('.page');
-        console.log(app.pages)
         app.pages.forEach((pg)=>{
             pg.addEventListener('show', app.pageShown);
         })
@@ -11,54 +10,61 @@ const app = {
         document.querySelectorAll('.nav-link').forEach((link)=>{
             link.addEventListener('click', app.nav);
         })
-        history.replaceState({}, 'Home', '#home');
+        history.replaceState({}, '', '#home');
         window.addEventListener('popstate', app.poppin);
 
         document.querySelector('.lgt').addEventListener('click', logout)
         document.querySelector('.prf').addEventListener('click', profile)
+        document.getElementById('try_now').addEventListener('click', go_login)
+        document.getElementById('c_p').addEventListener('click', go_login)
+        document.getElementById('s_u').addEventListener('click', go_login)
+        document.getElementById('lgn').addEventListener('click', go_login)
     },
     nav: function(ev){
         ev.preventDefault();
         let currentPage = ev.target.getAttribute('data-target');
         document.querySelector('.active').classList.remove('active');
-        console.log(currentPage)
         document.getElementById(currentPage).classList.add('active');
-        history.pushState({}, currentPage, `#${currentPage}`);
+        history.pushState({}, currentPage, '#' + currentPage);
         document.getElementById(currentPage).dispatchEvent(app.show);
     },
     pageShown: function(ev){
         ev.preventDefault();
-        let currentPage = document.querySelector('.active').getAttribute('id');
+        document.querySelector('.active').innerHTML = "<div class='loader'></div>";
 
-        fetch(`/render_page?page=${currentPage}`, 
-            { 
-            method: "GET", 
-            headers:{"content-type":"application/x-www-form-urlencoded"} 
-        })
-        .then( response => {
-            if (response.status !== 200) {
-                
-                return Promise.reject(); 
-            }
-            return response.text()
-        })
-        .then( i => {
-            document.querySelector('.active').innerHTML = i;
-            if (`${currentPage}` == 'search_food') {
-                const form_search_food = document.getElementById('search_food_form')
-                form_search_food.addEventListener('submit', search_food)
-            } else if (`${currentPage}` == 'login') {
-                const form_login = document.getElementById('login_form')
-                form_login.addEventListener('submit', login)
-            } else if (`${currentPage}` == 'calculator') {
-                const form_calculator = document.getElementById('calculator_form')
-                form_calculator.addEventListener('submit', calculator)
-            } else if (`${currentPage}` == 'signup') {
-                const form_signup = document.getElementById('signup_form')
-                form_signup.addEventListener('submit', signup)
-            }
-        })
-        .catch(() => console.log('ошибка'));  
+        setTimeout( function(){
+            let currentPage = document.querySelector('.active').getAttribute('id');
+
+            fetch('/render_page?page=' + currentPage, 
+                { 
+                method: "GET", 
+                headers:{"content-type":"application/x-www-form-urlencoded"} 
+            })
+            .then( response => {
+                if (response.status !== 200) {
+                    
+                    return Promise.reject(); 
+                }
+                return response.text()
+            })
+            .then( i => {
+                document.querySelector('.active').innerHTML = i;
+                if (currentPage == 'search_food') {
+                    const form_search_food = document.getElementById('search_food_form')
+                    form_search_food.addEventListener('submit', search_food)
+                } else if (currentPage == 'login') {
+                    const form_login = document.getElementById('login_form')
+                    form_login.addEventListener('submit', login)
+                } else if (currentPage == 'calculator') {
+                    const form_calculator = document.getElementById('calculator_form')
+                    form_calculator.addEventListener('submit', calculator)
+                } else if (currentPage == 'signup') {
+                    const form_signup = document.getElementById('signup_form')
+                    form_signup.addEventListener('submit', signup)
+                }
+            })
+            .catch(() => console.log('ошибка'));  
+        }, 1322 );
     },
     poppin: function(ev){
         console.log(location.hash, 'popstate event');
@@ -69,6 +75,27 @@ const app = {
         document.getElementById(hash).dispatchEvent(app.show);
     }
 }
+
+function go_login(e) {
+    e.preventDefault();
+    fetch('/render_page?page=login', 
+    { 
+        method: "GET",
+        headers:{"content-type":"application/x-www-form-urlencoded"}
+    })
+    .then( response => {
+        if (response.status !== 200) {
+            return Promise.reject(); 
+        }
+        return response.text()
+    })
+    .then( i => {
+        document.querySelector('.active').innerHTML = i;
+        const form_login = document.getElementById('login_form')
+        form_login.addEventListener('submit', login)
+    })
+    .catch(() => console.log('ошибка'));
+};
 
 function getCookie(name) {
     var cookieValue = null;
@@ -87,7 +114,7 @@ function getCookie(name) {
 
 function login(e) {
     e.preventDefault();
-    fetch(`/login`, 
+    fetch('/login', 
     { 
         method: "POST",
         body: "username=" + document.getElementById("username").value + "&password=" + document.getElementById("password").value,
@@ -116,7 +143,7 @@ function login(e) {
 
 function search_food(e) {
     e.preventDefault();
-    fetch(`/search_food`, 
+    fetch('/search_food', 
     { 
         method: "POST",
         body: "data=" + document.getElementById("data").value,
@@ -139,7 +166,7 @@ function search_food(e) {
 
 function calculator(e) {
     e.preventDefault();
-    fetch(`/calculator`, 
+    fetch('/calculator', 
     { 
         method: "POST",
         body: 'age=' + document.getElementById("age").value + 
@@ -210,7 +237,7 @@ function calculator(e) {
 
 function logout(e) {
     e.preventDefault();
-    fetch(`/logout`, 
+    fetch('/logout', 
     { 
         method: "GET", 
         headers:{"content-type":"application/x-www-form-urlencoded"} 
@@ -226,16 +253,16 @@ function logout(e) {
         document.getElementById('login_link').classList.remove('deactivate');
         document.getElementById('signup_link').classList.remove('deactivate');
         document.getElementById('logout_link').classList.add('deactivate');
-        if (i == "yes") {
-            alert("You logout")
-        } 
+        document.querySelector('.active').classList.remove('active');
+        document.getElementById("home").classList.add('active');
+        document.querySelector('.active').innerHTML = i;
     })
     .catch(() => console.log('ошибка')); 
 };
 
 function profile(e) {
     e.preventDefault();
-    fetch(`/profile`, 
+    fetch('/profile', 
     { 
         method: "GET", 
         headers:{"content-type":"application/x-www-form-urlencoded"} 
@@ -254,15 +281,69 @@ function profile(e) {
             document.getElementById('login_link').classList.add('deactivate');
             document.getElementById('signup_link').classList.add('deactivate');
             document.getElementById('logout_link').classList.remove('deactivate');
+            document.querySelector('.active').classList.remove('active');
+            document.getElementById("profile").classList.add('active');
+            history.pushState({}, "profile", "#profile");
             document.querySelector('.active').innerHTML = i;
+            document.getElementById('btn').addEventListener('click', create_post_render);
         }
     })
     .catch(() => console.log('ошибка')); 
 };
 
+function create_post_render(e) {
+    e.preventDefault();
+    fetch('/render_page?page=create_post', 
+    { 
+        method: "GET",
+        headers: {"content-type": "application/x-www-form-urlencoded"},
+    })
+    .then( response => {
+        if (response.status !== 200) {
+            
+            return Promise.reject(); 
+        }
+        return response.text()
+    })
+    .then( i => {
+        document.querySelector('.active').classList.remove('active');
+        document.getElementById("create_post").classList.add('active');
+        history.pushState({}, "create_post", "#create_post");
+        document.querySelector('.active').innerHTML = i;
+        document.getElementById('submit').addEventListener('click', create_post);
+    })
+    .catch(() => console.log('ошибка'));
+};
+
+function create_post(e) {
+    e.preventDefault();
+    console.log(document.getElementById("file").files[0]['name'])
+    fetch('/create_post', 
+    { 
+        method: "POST",
+        body: "title=" + document.getElementById("title").value + 
+        "&description=" + document.getElementById("description").value + 
+        "&create-post-body-text=" + document.getElementById("create-post-body-text").value + 
+        "&file=" + document.getElementById("file").files[0],
+        headers: {"content-type": "application/x-www-form-urlencoded", "X-CSRFToken": getCookie('csrftoken') },
+    })
+    .then( response => {
+        if (response.status !== 200) {
+            
+            return Promise.reject(); 
+        }
+        return response.text()
+    })
+    .then( i => {
+        document.querySelector('.active').innerHTML = i;
+        document.getElementById('submit').addEventListener('click', create_post);
+    })
+    .catch(() => console.log('ошибка'));
+};
+
 function signup(e) {
     e.preventDefault();
-    fetch(`/signup`, 
+    fetch('/signup', 
     { 
         method: "POST",
         body: "first_name=" + document.getElementById("first_name").value + 

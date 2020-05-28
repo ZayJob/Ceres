@@ -34,7 +34,7 @@
         <nav class="header__navbar navbar">
             <div class="navbar__menu-wrapper navbar__menu-wrapper_left">
                 <div class="navbar__menu-item menu-item_left">
-                    <a class="menu-item__title menu-item__title_current nav-link" data-target="home" href="#">Home</a>
+                    <a class="menu-item__title nav-link" data-target="home" href="#">Home</a>
                 </div>
                 <div class="navbar__menu-item menu-item_left">
                     <a class="menu-item__title nav-link" data-target="search_food" href="#">Search food</a>
@@ -48,7 +48,7 @@
             </div>
     
             <div class="navbar__sitename-wrapper">
-                <a data-target="home" href="#"class="navbar__sitename-title nav-link">Healthy food</a>
+                <a class="navbar__sitename-title">Healthy food</a>
             </div>
     
             <div class="navbar__menu-wrapper navbar__menu-wrapper_right">
@@ -68,9 +68,6 @@
                     </svg>
                     </div>
                 </a>
-                <div class="navbar__menu-item menu-item_right">
-                    <a class="menu-item__title">en</a>
-                </div>
             </div>
         </nav>
     </header>
@@ -83,7 +80,7 @@
                 <div class="top-content__post top-post">
                     <h1 class="top-post__title">Wealth is nothing without health</h1>
                     <h2 class="top-post__second-title">5 Diets That Are Supported by Science</h2>
-                    <a class="a-link nav-link" data-target="login" href="#"><button class="top-post__button button">Try now</button></a>
+                    <a class="a-link" id="try_now"><button class="top-post__button button">Try now</button></a>
                     <p class="top-post__description">Here are 5 healthy diets that are scientifically proven to be effective.</p>
                 </div>
                 </div>
@@ -343,7 +340,7 @@
 
                 <div class="mid-content__post post post_transparent">
                 <div class="post__create create">
-                    <a class="a-link nav-link" data-target="login" href="#">
+                    <a class="a-link" id="c_p">
                         <button class="create__button button">
                         <svg width="30" height="36" viewBox="0 0 30 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M29.8387 20.5H17.2581V35.5H13.0645V20.5H0.483887V15.5H13.0645V0.5H17.2581V15.5H29.8387V20.5Z" fill="white"/>
@@ -444,7 +441,7 @@
     <footer class="footer">
         <div class="footer__menu footer-menu">
             <div class="footer-menu__menu-item footer-menu__menu-item_sitename">
-                <a class="footer-menu__sitename-title nav-link" data-target="home" href="#">Healthy food</a>
+                <a class="footer-menu__sitename-title">Healthy food</a>
             </div>
 
             <div class="flex-break-item flex-break-item_footer"></div>
@@ -485,8 +482,8 @@
             <div class="footer-menu__menu-item">
                 <div class="footer-menu__submenu-wrapper">
                     <div class="footer-menu__submenu submenu submenu_buttons">
-                        <a class="a-link nav-link" data-target="signup" href="#"><button class="submenu__button button">Sign up</button></a>
-                        <a class="a-link nav-link" data-target="login" href="#"><button class="submenu__button button">Login</button></a>
+                        <a class="a-link" id="s_u"><button class="submenu__button button">Sign up</button></a>
+                        <a class="a-link" id="lgn"><button class="submenu__button button">Login</button></a>
                     </div>
                 </div>
             </div>

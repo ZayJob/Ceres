@@ -8,7 +8,7 @@ from .views import *
 name_apps = 'hf'
 
 urlpatterns = [
-    path('', home, name='home'),
+    path('', home),
     path('signup', signup_post),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', activate, name='activate'),
     path('logout', logout_user),
@@ -16,7 +16,7 @@ urlpatterns = [
     path('profile', profile),
     path('calculator', calculator_post),
     path('search_food', search_food_post),
-    path('create_post/', create_post, name='c_post'),
+    path('create_post', create_post_post),
     path('render_page', render_page),
 ]
 
