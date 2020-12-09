@@ -28,3 +28,11 @@ class Profile(models.Model):
         (USER, 'USER'),
     )
     role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=True, null=True)
+
+
+class Diet(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    energy = models.IntegerField()
+    protein = models.IntegerField()
+    fat = models.IntegerField()
+    carbohydrate = models.IntegerField()

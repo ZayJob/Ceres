@@ -12,7 +12,7 @@ from django.db import transaction
 import requests as req
 import json
 
-from .models import Profile, Post
+from .models import Profile, Post, Diet
 from .tokens import account_activation_token
 from .forms import SignupForm, ProfileForm, LoginForm
 
